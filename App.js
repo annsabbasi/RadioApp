@@ -1,14 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import SignUp from './src/Screens/SignUp';
+import SignIn from './src/Screens/SignIn';
+import FPassword from './src/Screens/F-Password';
+import Test from './src/Screens/Test';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* <Text>Open up App.js to start working on your app!</Text>
-      <Text>Hello anns</Text> */}
       <StatusBar style="auto" />
       <SignUp />
+      {/* <SignIn /> */}
+      {/* <FPassword /> */}
+      {/* <Test /> */}
     </View>
   );
 }

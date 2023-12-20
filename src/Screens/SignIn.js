@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
 import React from 'react'
 
-export default function SignUp() {
+export default function SignIn() {
     return (
         <SafeAreaView style={styles.container}>
             <View>
@@ -12,25 +12,14 @@ export default function SignUp() {
                     />
                 </View>
                 <View style={styles.headText}>
-                    <Text style={styles.heading}>Getting Started</Text>
-                    <Text style={styles.paragraph}>Create an account to continue!</Text>
+                    <Text style={styles.heading}>Let's Sign You In</Text>
+                    <Text style={styles.paragraph}>Welome back, you've been missed!</Text>
                 </View>
 
                 <View style={styles.formContainer}>
 
                     <View style={styles.formItem}>
-                        <Text style={styles.emailText}>Email</Text>
-                        <View style={styles.inputMain}>
-                            <Image
-                                source={require('../assets/icons/mail.png')}
-                                style={styles.email}
-                            />
-                            <TextInput style={styles.inputEmail} placeholder='example@gmail.com' />
-                        </View>
-                    </View>
-
-                    <View style={styles.formItem}>
-                        <Text style={styles.emailText}>Username</Text>
+                        <Text style={styles.emailText}>Username or Email</Text>
                         <View style={styles.inputMain}>
                             <Image
                                 source={require('../assets/icons/user.png')}
@@ -55,13 +44,6 @@ export default function SignUp() {
                         </View>
                     </View>
 
-                    <View style={styles.checkboxContainer}>
-                        <View style={styles.checkbox}>
-                            <Text>&#10003;</Text>
-                        </View>
-                        <Text style={styles.text}>By creating an account, you agree to our{'\n'}<Text style={styles.textBold}>Term & Conditions</Text></Text>
-                    </View>
-
                     <View style={styles.btnContainer}>
                         <TouchableOpacity style={styles.btn}>
                             <Text>{''}</Text>
@@ -74,8 +56,9 @@ export default function SignUp() {
                     </View>
                 </View>
 
+
                 <View style={styles.haveAccount}>
-                    <Text style={[styles.text, style = { color: 'gray' }]}>Already have an account? <Text style={[styles.textBold, style = { color: 'black' }]}> Sign in</Text></Text>
+                    <Text style={[styles.text, style = { color: 'gray' }]}>Don't have an account? <Text style={[styles.textBold, style = { color: 'black' }]}> Sign up</Text></Text>
                 </View>
 
             </View>
@@ -108,7 +91,8 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     formContainer: {
-        gap: 30
+        gap: 60,
+        marginTop: 30
     },
     emailText: {
         fontSize: 16,
@@ -130,31 +114,13 @@ const styles = StyleSheet.create({
     inputEmail: {
         flex: 1
     },
-    checkboxContainer: {
-        flexDirection: 'row',
-        gap: 15,
-        marginVertical: 15
-    },
-    checkbox: {
-        borderWidth: 1,
-        borderColor: 'black',
-        alignSelf: 'flex-start',
-        padding: 2,
-        borderRadius: 5,
-        paddingHorizontal: 5,
-        alignSelf: 'center'
-    },
     textBold: {
         fontWeight: '700',
-    },
-    text: {
-        fontSize: 14,
-        lineHeight: 20,
     },
     btnContainer: {
         alignSelf: 'center',
         width: '100%',
-        marginTop: 20
+        marginTop: 40
     },
     linearGradient: {
         flex: 1,
