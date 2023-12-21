@@ -6,6 +6,7 @@ import FPassword from './src/Screens/F-Password';
 import Test from './src/Screens/Test';
 import Home from './src/Screens/Home';
 import Splash from './src/Screens/Splash';
+import DjProfile from './src/Screens/DjProfile';
 
 export default function App() {
   return (
@@ -16,7 +17,8 @@ export default function App() {
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
-      <Test />
+      {/* <DjProfile /> */}
+      {/* <Test /> */}
     </View>
   );
 }
