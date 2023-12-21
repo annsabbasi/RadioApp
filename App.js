@@ -13,8 +13,8 @@ export default function App() {
       {/* <SignUp /> */}
       {/* <SignIn /> */}
       {/* <FPassword /> */}
-      <Home />
-      {/* <Test /> */}
+      {/* <Home /> */}
+      <Test />
     </View>
   );
 }

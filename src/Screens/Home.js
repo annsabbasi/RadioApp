@@ -1,7 +1,31 @@
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Platform } from 'react-native';
-import React from 'react';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
+import React, { useRef, useState } from 'react';
 
 export default function Home() {
+
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const scrollViewRef = useRef();
+
+    const handleScroll = (event) => {
+        const contentOffsetX = event.nativeEvent.contentOffset.x;
+        // const index = Math.round(contentOffsetX / Dimensions.get('window').width);
+        // setCurrentIndex(index);
+        const index = contentOffsetX / Dimensions.get('window').width;
+        setCurrentIndex(index);
+    };
+
+    const data = [
+        { title: 'Item 1' },
+        { title: 'Item 2' },
+        { title: 'Item 3' },
+        { title: 'Item 1' },
+        { title: 'Item 2' },
+        { title: 'Item 3' },
+    ];
+
+
+    const itemWidth = Dimensions.get('window').width / 3;
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -57,6 +81,42 @@ export default function Home() {
                 <TouchableOpacity style={styles.fmTag}>
                     <Text style={styles.fmText}>Listen Our Second FM</Text>
                 </TouchableOpacity>
+
+                <View>
+                    {/* <ScrollView
+                        ref={scrollViewRef}
+                        horizontal
+                        pagingEnabled
+                        showsHorizontalScrollIndicator={false}
+                        onScroll={handleScroll}
+                        scrollEventThrottle={16}
+                        style={{ flexDirection: 'row' }}
+                    >
+                        {data.map((item, index) => (
+                            <View key={index} style={[styles.item, { width: Dimensions.get('window').width / 3 }]}>
+                                <Text style={styles.title}>{item.title}</Text>
+                            </View>
+                        ))}
+                    </ScrollView> */}
+
+                    <ScrollView
+                        ref={scrollViewRef}
+                        horizontal
+                        pagingEnabled
+                        showsHorizontalScrollIndicator={false}
+                        onScroll={handleScroll}
+                        scrollEventThrottle={16}
+                        snapToInterval={itemWidth}
+                        decelerationRate="fast" // Optional: You can adjust the deceleration rate
+                        style={{ flexDirection: 'row' }}
+                    >
+                        {data.map((item, index) => (
+                            <View key={index} style={[styles.item, { width: itemWidth }]}>
+                                <Text style={styles.title}>{item.title}</Text>
+                            </View>
+                        ))}
+                    </ScrollView>
+                </View>
 
             </ScrollView>
         </SafeAreaView>
@@ -135,6 +195,44 @@ const styles = StyleSheet.create({
     fmText: {
         fontSize: 14,
         fontWeight: '700'
+    },
+
+
+
+
+    item: {
+        width: Dimensions.get('window').width,
+        marginRight: 10,
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'lightblue',
+    },
+    title: {
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+    pagination: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginTop: 10,
+    },
+    paginationDot: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        backgroundColor: 'blue',
+        marginHorizontal: 5,
+    },
+    controls: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 20,
+        marginTop: 10,
+    },
+    controlText: {
+        fontSize: 16,
+        color: 'blue',
     },
 });
 
