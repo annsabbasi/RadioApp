@@ -235,5 +235,5 @@ const styles = StyleSheet.create({
         color: 'blue',
     },
 });
-
+// Hello anns I have changed from the github andriod..
 
