@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
 
     item: {
         width: Dimensions.get('window').width,
-        marginRight: 10,
+        // marginRight: 10,
         height: 200,
         justifyContent: 'center',
         alignItems: 'center',

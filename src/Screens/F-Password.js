@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         width: '100%',
         justifyContent: 'space-between',
+        alignItems: 'center',
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
