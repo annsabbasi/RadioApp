@@ -1,57 +1,30 @@
 import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import React, { useRef, useState } from 'react';
 
-export default function Test() {
+export default function Home() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollViewRef = useRef();
 
-  // const handleScroll = (event) => {
-  //   const contentOffsetX = event.nativeEvent.contentOffset.x;
-  //   // const index = Math.round(contentOffsetX / Dimensions.get('window').width);
-  //   setCurrentIndex(index);
-  //   const index = contentOffsetX / Dimensions.get('window').width;
-  //   setCurrentIndex(index);
-  // };
-  // const windowWidth = Dimensions.get('window').width;
-  // const contentOffsetX = event.nativeEvent.contentOffset.x;
-  // const index = contentOffsetX / (0.80 * windowWidth);
-
-  // const data = [
-  //   { title: 'Item 1' },
-  //   { title: 'Item 2' },
-  //   { title: 'Item 3' },
-  //   { title: 'Item 1' },
-  //   { title: 'Item 2' },
-  //   { title: 'Item 3' },
-  // ];
-  const data = [
-    { image: require('../assets/imgA.jpg'), text: 'Irish Moutarde' },
-    { image: require('../assets/imgB.jpg'), text: 'Irish Heartbeat' },
-    { image: require('../assets/imgC.jpg'), text: 'Irish Bearmats' },
-    { image: require('../assets/imgD.jpg'), text: 'Irish Moutarde' },
-    { image: require('../assets/imgE.jpg'), text: 'Irish Heartbeat' },
-    { image: require('../assets/imgF.jpg'), text: 'Irish Bearmats' },
-  ];
-
-
-  // const itemWidth = Dimensions.get('window').width / 3;
-
   const handleScroll = (event) => {
     const contentOffsetX = event.nativeEvent.contentOffset.x;
-    const index = Math.round(contentOffsetX / itemWidth);
+    // const index = Math.round(contentOffsetX / Dimensions.get('window').width);
+    // setCurrentIndex(index);
+    const index = contentOffsetX / Dimensions.get('window').width;
     setCurrentIndex(index);
   };
 
-  // const gap = 10; // Adjust this value as needed
-  // const itemWidth = Dimensions.get('window').width - gap;
+  const data = [
+    { title: 'Item 1' },
+    { title: 'Item 2' },
+    { title: 'Item 3' },
+    { title: 'Item 1' },
+    { title: 'Item 2' },
+    { title: 'Item 3' },
+  ];
 
-  const imagesToShow = 3; // Adjust the number of images you want to display
-  const gap = 10; // Adjust this value as needed
 
-  // Calculate adjusted item width including gap
-  const itemWidth = (Dimensions.get('window').width - (gap * (imagesToShow - 1))) / imagesToShow;
-
+  const itemWidth = Dimensions.get('window').width / 3;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -109,51 +82,22 @@ export default function Test() {
           <Text style={styles.fmText}>Listen Our Second FM</Text>
         </TouchableOpacity>
 
-        <View style={styles.djContainer}>
-          <View style={styles.djHead}>
-            <Image
-              source={require('../assets/icons/guitar.png')}
-            />
-            <Text style={styles.textDj}>Upcoming Shows</Text>
-          </View>
+        <View>
           {/* <ScrollView
-            ref={scrollViewRef}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onScroll={handleScroll}
-            scrollEventThrottle={16}
-            style={{ flexDirection: 'row' }}
-          >
-            {data.map((item, index) => (
-              <View key={index} style={[styles.item, { width: Dimensions.get('window').width / 3 }]}>
-                <Text style={styles.title}>{item.title}</Text>
-              </View>
-            ))}
-          </ScrollView> */}
-
-          {/* <ScrollView
-            ref={scrollViewRef}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onScroll={handleScroll}
-            scrollEventThrottle={16}
-            snapToInterval={itemWidth}
-            // decelerationRate="fast" // Optional: You can adjust the deceleration rate
-            contentContainerStyle={{ flexDirection: 'row', gap: 10, }}
-          >
-            {data.map((item, index) => (
-              // <View key={index} style={[styles.item, { width: itemWidth }]}>
-              //   <Text style={styles.title}>{item.title}</Text>
-              // </View>
-              <View key={index} style={[styles.item, { width: itemWidth }]}>
-                <Image
-                  source={item.image}
-                  style={styles.imageCrousal} />
-              </View>
-            ))}
-          </ScrollView> */}
+                        ref={scrollViewRef}
+                        horizontal
+                        pagingEnabled
+                        showsHorizontalScrollIndicator={false}
+                        onScroll={handleScroll}
+                        scrollEventThrottle={16}
+                        style={{ flexDirection: 'row' }}
+                    >
+                        {data.map((item, index) => (
+                            <View key={index} style={[styles.item, { width: Dimensions.get('window').width / 3 }]}>
+                                <Text style={styles.title}>{item.title}</Text>
+                            </View>
+                        ))}
+                    </ScrollView> */}
 
           <ScrollView
             ref={scrollViewRef}
@@ -162,57 +106,16 @@ export default function Test() {
             showsHorizontalScrollIndicator={false}
             onScroll={handleScroll}
             scrollEventThrottle={16}
-            snapToInterval={itemWidth + gap} // Adjusted to include gap
-            contentContainerStyle={{ flexDirection: 'row', gap }}
+            snapToInterval={itemWidth}
+            decelerationRate="fast" // Optional: You can adjust the deceleration rate
+            style={{ flexDirection: 'row' }}
           >
             {data.map((item, index) => (
               <View key={index} style={[styles.item, { width: itemWidth }]}>
-                <Image
-                  source={item.image}
-                  style={styles.imageCrousal}
-                />
-                <Text style={styles.carousaltxt}>{item.text}</Text>
+                <Text style={styles.title}>{item.title}</Text>
               </View>
             ))}
           </ScrollView>
-
-
-        </View>
-
-
-        <View style={styles.djContainer}>
-          <View style={styles.djHead}>
-            <Image
-              source={require('../assets/icons/mike.png')}
-            />
-            <Text style={styles.textDj}>DJs</Text>
-          </View>
-          <View style={styles.djTeam}>
-            <TouchableOpacity style={styles.person}>
-              <Image
-                source={require('../assets/MaleAvatar.png')}
-                style={styles.ellipse2} />
-              <Text style={styles.Dj}>Bridget</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.person}>
-              <Image
-                source={require('../assets/FemaleAvatar.png')}
-                style={styles.ellipse2} />
-              <Text style={styles.Dj}>Ronan</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.person}>
-              <Image
-                source={require('../assets/MaleAvatar.png')}
-                style={styles.ellipse2} />
-              <Text style={styles.Dj}>Bridget</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.person}>
-              <Image
-                source={require('../assets/FemaleAvatar.png')}
-                style={styles.ellipse2} />
-              <Text style={styles.Dj}>Ronan</Text>
-            </TouchableOpacity>
-          </View>
         </View>
 
       </ScrollView>
@@ -221,44 +124,6 @@ export default function Test() {
 }
 
 const styles = StyleSheet.create({
-
-
-  djContainer: {
-    marginVertical: 30,
-    gap: 40,
-    // paddingHorizontal: 30,
-  },
-  djHead: {
-    marginHorizontal: 20,
-    flexDirection: 'row',
-    gap: 10,
-    alignItems: 'center',
-  },
-  djTeam: {
-    flexDirection: 'row',
-    // gap: 50
-    justifyContent: 'space-around',
-    // borderWidth: 2
-  },
-  textDj: {
-    fontWeight: '700',
-    fontSize: 25,
-  },
-  Dj: {
-    fontWeight: '700',
-    fontSize: 20,
-  },
-  carousaltxt: {
-    fontWeight: '700',
-    fontSize: 16,
-    marginTop: 20
-  },
-  person: {
-    alignItems: 'center',
-    gap: 10
-  },
-
-
   container: {
     flex: 1,
     backgroundColor: '#ffffff',
@@ -266,19 +131,6 @@ const styles = StyleSheet.create({
   ellipseHome: {
     position: 'relative',
     width: '100%',
-    // backgroundColor: 'rgba(34, 34, 34, 0.15)',
-    // shadowColor: 'rgba(34, 34, 34, 0.15)',
-    // paddingBottom: 20,
-    // width: 100,
-    // height: 100,
-    // backgroundColor: '#CBECC2',
-    // borderRadius: 8,
-    // // For Android
-    // elevation: 0.2,
-    // // For iOS
-    // shadowColor: 'rgba(34, 34, 34, 0.15)',
-    // shadowOffset: { width: 0, height: 4 },
-    // shadowOpacity: 0.1,
   },
   image: {
     width: '100%',
@@ -349,29 +201,12 @@ const styles = StyleSheet.create({
 
 
   item: {
-    // width: Dimensions.get('window').width,
-    // marginRight: 50,
-    // width: '100%',
-    // height: 200,
-    // width: '250%',
+    width: Dimensions.get('window').width,
+    // marginRight: 10,
+    height: 200,
     justifyContent: 'center',
     alignItems: 'center',
-    alignSelf: 'center',
-    // borderWidth: 2,
-    // backgroundColor: 'lightblue',
-    borderRadius: 10,
-  },
-  imageCrousal: {
-    width: '100%',
-    // width: 100,
-    height: 200,
-    borderRadius: 10,
-    resizeMode: 'cover',
-    alignSelf: 'center',
-    // borderWidth: 2,
-    // borderColor: 'red',
-    alignSelf: 'center',
-    alignItems: 'center',
+    backgroundColor: 'lightblue',
   },
   title: {
     fontSize: 18,
@@ -400,5 +235,5 @@ const styles = StyleSheet.create({
     color: 'blue',
   },
 });
-
+// Hello anns I have changed from the github andriod..
 

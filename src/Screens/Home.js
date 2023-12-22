@@ -1,30 +1,26 @@
 import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
 import React, { useRef, useState } from 'react';
 
-export default function Home() {
+export default function Test() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const scrollViewRef = useRef();
+    const data = [
+        { image: require('../assets/imgA.jpg'), text: 'Irish Moutarde' },
+        { image: require('../assets/imgB.jpg'), text: 'Irish Heartbeat' },
+        { image: require('../assets/imgC.jpg'), text: 'Irish Bearmats' },
+        { image: require('../assets/imgD.jpg'), text: 'Irish Moutarde' },
+        { image: require('../assets/imgE.jpg'), text: 'Irish Heartbeat' },
+        { image: require('../assets/imgF.jpg'), text: 'Irish Bearmats' },
+    ];
 
     const handleScroll = (event) => {
         const contentOffsetX = event.nativeEvent.contentOffset.x;
-        // const index = Math.round(contentOffsetX / Dimensions.get('window').width);
-        // setCurrentIndex(index);
-        const index = contentOffsetX / Dimensions.get('window').width;
+        const index = Math.round(contentOffsetX / itemWidth);
         setCurrentIndex(index);
     };
-
-    const data = [
-        { title: 'Item 1' },
-        { title: 'Item 2' },
-        { title: 'Item 3' },
-        { title: 'Item 1' },
-        { title: 'Item 2' },
-        { title: 'Item 3' },
-    ];
-
-
-    const itemWidth = Dimensions.get('window').width / 3;
+    const imagesToShow = 3;
+    const gap = 10;
+    const itemWidth = (Dimensions.get('window').width - (gap * (imagesToShow - 1))) / imagesToShow;
 
     return (
         <SafeAreaView style={styles.container}>
@@ -82,40 +78,64 @@ export default function Home() {
                     <Text style={styles.fmText}>Listen Our Second FM</Text>
                 </TouchableOpacity>
 
-                <View>
-                    {/* <ScrollView
-                        ref={scrollViewRef}
-                        horizontal
-                        pagingEnabled
-                        showsHorizontalScrollIndicator={false}
-                        onScroll={handleScroll}
-                        scrollEventThrottle={16}
-                        style={{ flexDirection: 'row' }}
-                    >
-                        {data.map((item, index) => (
-                            <View key={index} style={[styles.item, { width: Dimensions.get('window').width / 3 }]}>
-                                <Text style={styles.title}>{item.title}</Text>
-                            </View>
-                        ))}
-                    </ScrollView> */}
+                <View style={styles.djContainer}>
+                    <View style={styles.djHead}>
+                        <Image
+                            source={require('../assets/icons/guitar.png')} />
+                        <Text style={styles.textDj}>Upcoming Shows</Text>
+                    </View>
 
                     <ScrollView
-                        ref={scrollViewRef}
                         horizontal
                         pagingEnabled
                         showsHorizontalScrollIndicator={false}
                         onScroll={handleScroll}
                         scrollEventThrottle={16}
-                        snapToInterval={itemWidth}
-                        decelerationRate="fast" // Optional: You can adjust the deceleration rate
-                        style={{ flexDirection: 'row' }}
-                    >
+                        snapToInterval={itemWidth + gap}
+                        contentContainerStyle={{ flexDirection: 'row', gap }}>
                         {data.map((item, index) => (
                             <View key={index} style={[styles.item, { width: itemWidth }]}>
-                                <Text style={styles.title}>{item.title}</Text>
+                                <Image
+                                    source={item.image}
+                                    style={styles.imageCrousal} />
+                                <Text style={styles.carousaltxt}>{item.text}</Text>
                             </View>
                         ))}
                     </ScrollView>
+
+                </View>
+                <View style={styles.djContainer}>
+                    <View style={styles.djHead}>
+                        <Image
+                            source={require('../assets/icons/mike.png')} />
+                        <Text style={styles.textDj}>DJs</Text>
+                    </View>
+                    <View style={styles.djTeam}>
+                        <TouchableOpacity style={styles.person}>
+                            <Image
+                                source={require('../assets/MaleAvatar.png')}
+                                style={styles.ellipse2} />
+                            <Text style={styles.Dj}>Bridget</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.person}>
+                            <Image
+                                source={require('../assets/FemaleAvatar.png')}
+                                style={styles.ellipse2} />
+                            <Text style={styles.Dj}>Ronan</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.person}>
+                            <Image
+                                source={require('../assets/MaleAvatar.png')}
+                                style={styles.ellipse2} />
+                            <Text style={styles.Dj}>Bridget</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.person}>
+                            <Image
+                                source={require('../assets/FemaleAvatar.png')}
+                                style={styles.ellipse2} />
+                            <Text style={styles.Dj}>Ronan</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
 
             </ScrollView>
@@ -137,7 +157,6 @@ const styles = StyleSheet.create({
     },
     header: {
         position: 'absolute',
-        // top: '50%',
         left: 0,
         right: 0,
         flexDirection: 'row',
@@ -174,8 +193,6 @@ const styles = StyleSheet.create({
         zIndex: 3,
         gap: 55,
         flexDirection: 'row',
-        // width: '100%',
-        // justifyContent: 'space-between'
     },
     fmTag: {
         width: '50%',
@@ -196,44 +213,50 @@ const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: '700'
     },
-
-
-
-
+    djContainer: {
+        marginVertical: 30,
+        gap: 40,
+    },
+    djHead: {
+        marginHorizontal: 20,
+        flexDirection: 'row',
+        gap: 10,
+        alignItems: 'center',
+    },
+    djTeam: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+    },
+    textDj: {
+        fontWeight: '700',
+        fontSize: 25,
+    },
+    Dj: {
+        fontWeight: '700',
+        fontSize: 20,
+    },
+    carousaltxt: {
+        fontWeight: '700',
+        fontSize: 16,
+        marginTop: 20
+    },
+    person: {
+        alignItems: 'center',
+        gap: 10
+    },
     item: {
-        width: Dimensions.get('window').width,
-        // marginRight: 10,
-        height: 200,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'lightblue',
+        alignSelf: 'center',
+        borderRadius: 10,
     },
-    title: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    pagination: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginTop: 10,
-    },
-    paginationDot: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: 'blue',
-        marginHorizontal: 5,
-    },
-    controls: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: 20,
-        marginTop: 10,
-    },
-    controlText: {
-        fontSize: 16,
-        color: 'blue',
+    imageCrousal: {
+        width: '100%',
+        height: 200,
+        borderRadius: 10,
+        resizeMode: 'cover',
+        alignSelf: 'center',
+        alignSelf: 'center',
+        alignItems: 'center',
     },
 });
-// Hello anns I have changed from the github andriod..
-

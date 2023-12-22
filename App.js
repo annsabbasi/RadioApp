@@ -7,6 +7,7 @@ import Test from './src/Screens/Test';
 import Home from './src/Screens/Home';
 import Splash from './src/Screens/Splash';
 import DjProfile from './src/Screens/DjProfile';
+import Archives from './src/Screens/Archives';
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       {/* <FPassword /> */}
       {/* <Home /> */}
       {/* <DjProfile /> */}
+      <Archives />
       {/* <Test /> */}
     </View>
   );
