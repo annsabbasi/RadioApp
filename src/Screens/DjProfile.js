@@ -165,7 +165,8 @@ const styles = StyleSheet.create({
     profileImg: {
         width: 160,
         height: 210,
-        borderWidth: 2
+        // borderWidth: 2,
+        // padding: 20
     },
     profileName: {
         fontSize: 24,

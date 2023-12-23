@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 export default function LiveRadio() {
@@ -39,9 +39,11 @@ export default function LiveRadio() {
                             <Image
                                 source={require('../assets/icons/volumeDown.png')}
                                 style={styles.goBack} />
-                            <Image
-                                source={require('../assets/icons/guitar.png')}
-                                style={styles.goBack} />
+                            <TouchableOpacity>
+                                <Image
+                                    source={require('../assets/icons/resume.png')}
+                                    style={styles.resume} />
+                            </TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/volumeUp.png')}
                                 style={styles.goBack} />
@@ -127,9 +129,13 @@ const styles = StyleSheet.create({
     controles: {
         flexDirection: 'row',
         // gap: 15
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-around',
         width: '100%',
-        // borderWidth: 2
+        // borderWidth: 2,
         marginBottom: 20
-    }
+    },
+    resume: {
+        width: 50,
+        height: 50,
+    },
 });
