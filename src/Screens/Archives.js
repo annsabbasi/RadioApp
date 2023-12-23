@@ -19,7 +19,7 @@ export default function Archives() {
                             source={require('../assets/icons/goBack.png')}
                             style={styles.goBack} />
                         <View style={styles.alignCenter}>
-                            <Text style={styles.textHead}>Dj Profile</Text>
+                            <Text style={styles.textHead}>Archeives</Text>
                             <Text style={styles.textParagraph}>Lorem ipsum dolor sit amet,</Text>
                         </View>
                         <Text>{''}</Text>

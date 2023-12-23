@@ -8,6 +8,9 @@ import Home from './src/Screens/Home';
 import Splash from './src/Screens/Splash';
 import DjProfile from './src/Screens/DjProfile';
 import Archives from './src/Screens/Archives';
+import Profile from './src/Screens/Profile';
+import UpComing from './src/Screens/Upcoming';
+import LiveRadio from './src/Screens/LiveRadio';
 
 export default function App() {
   return (
@@ -19,7 +22,10 @@ export default function App() {
       {/* <FPassword /> */}
       {/* <Home /> */}
       {/* <DjProfile /> */}
-      <Archives />
+      {/* <Archives /> */}
+      {/* <Profile /> */}
+      {/* <UpComing /> */}
+      <LiveRadio />
       {/* <Test /> */}
     </View>
   );
