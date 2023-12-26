@@ -11,6 +11,9 @@ import Archives from './src/Screens/Archives';
 import Profile from './src/Screens/Profile';
 import UpComing from './src/Screens/Upcoming';
 import LiveRadio from './src/Screens/LiveRadio';
+import Sponsers from './src/Screens/Sponsers';
+import ShowsContact from './src/Screens/ShowsContact';
+import ArcheiveInner from './src/Screens/ArcheiveInner';
 
 export default function App() {
   return (
@@ -25,7 +28,10 @@ export default function App() {
       {/* <Archives /> */}
       {/* <Profile /> */}
       {/* <UpComing /> */}
-      <LiveRadio />
+      {/* <LiveRadio /> */}
+      {/* <Sponsers /> */}
+      {/* <ShowsContact /> */}
+      <ArcheiveInner/>
       {/* <Test /> */}
     </View>
   );
