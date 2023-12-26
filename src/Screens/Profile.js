@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function UserProfile() {
     return (
-        <SafeAreaView style={styles.containet}>
+        <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View style={styles.ellipseHome}>
                     <Image

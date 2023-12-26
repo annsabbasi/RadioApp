@@ -74,17 +74,11 @@ export default function ArcheiveInner() {
                                 source={require('../assets/icons/audionext.png')}
                                 style={styles.goBack} />
                         </View>
-                        {/* <View>
-                            <Image
-                                source={require('../assets/icons/volumeUp.png')}
-                                style={styles.goBack} />
-                        </View> */}
                     </View>
                 </View>
                 <View>
                     <Image
-                        source={require('../assets/footer.png')}
-                        style={styles.goBack} />
+                        source={require('../assets/footer.png')} />
                 </View>
 
             </ScrollView>
@@ -93,31 +87,12 @@ export default function ArcheiveInner() {
 };
 
 const styles = StyleSheet.create({
-    timeLapsContent: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        width: '95%'
-    },
-    sliderContent: {
-        width: '100%',
-        alignItems: 'center',
-        marginBottom: 40,
-        marginTop: 10
-    },
-    slider: {
-        width: '100%',
-        height: 0,
-        paddingVertical: 10,
-        marginVertical: 5
-    },
     container: {
         flex: 1,
-        // backgroundColor: 'green',
     },
     ellipseHome: {
         position: 'relative',
         width: '100%',
-        // bottom: 50,
         marginTop: -80
     },
     image: {
@@ -144,26 +119,37 @@ const styles = StyleSheet.create({
 
     musicContainer: {
         alignItems: 'center',
-        marginTop: 50
+        marginVertical: 50,
     },
     musicBox: {
         width: '95%',
-        // borderWidth: 2,
         alignItems: 'center',
-        // gap: 0
+    },
+    timeLapsContent: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '95%'
+    },
+    sliderContent: {
+        width: '100%',
+        alignItems: 'center',
+        marginBottom: 40,
+        marginTop: 10
+    },
+    slider: {
+        width: '100%',
+        height: 0,
+        paddingVertical: 10,
+        marginVertical: 5
     },
     playlistName: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        // borderWidth: 2,
-        marginBottom: 40,
+        marginBottom: 30,
         width: '100%'
     },
     channelImg: {
-        // width: 350,
-        // height: 350,
         width: '100%',
-        // height: 450,
         borderRadius: 10,
 
     },
@@ -180,10 +166,8 @@ const styles = StyleSheet.create({
     },
     controles: {
         flexDirection: 'row',
-        // gap: 15
         justifyContent: 'space-around',
         width: '100%',
-        // borderWidth: 2,
         marginBottom: 20
     },
     resume: {

@@ -14,13 +14,14 @@ import LiveRadio from './src/Screens/LiveRadio';
 import Sponsers from './src/Screens/Sponsers';
 import ShowsContact from './src/Screens/ShowsContact';
 import ArcheiveInner from './src/Screens/ArcheiveInner';
+import Shows from './src/Screens/Shows';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       {/* <Splash /> */}
-      {/* <SignUp /> */}
+      <SignUp />
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
@@ -31,7 +32,8 @@ export default function App() {
       {/* <LiveRadio /> */}
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
-      <ArcheiveInner/>
+      {/* <ArcheiveInner /> */}
+      {/* <Shows /> */}
       {/* <Test /> */}
     </View>
   );
