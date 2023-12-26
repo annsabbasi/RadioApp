@@ -33,13 +33,13 @@ export default function Test() {
                         <TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/hamburger.png')}
-                                style={styles.hamburger} />
+                                style={[styles.hamburger, styles.Icons]} />
                         </TouchableOpacity>
                         <Text style={styles.centeredText}>Home</Text>
                         <TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/power.png')}
-                                style={styles.power} />
+                                style={[styles.power, styles.Icons]} />
                         </TouchableOpacity>
                     </View>
 
@@ -59,17 +59,17 @@ export default function Test() {
                         <TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/previous.png')}
-                                style={styles.ellipse2} />
+                                style={[styles.ellipse2, styles.Icons]} />
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/pause.png')}
-                                style={styles.ellipse2} />
+                                style={[styles.ellipse2, styles.Icons]} />
                         </TouchableOpacity>
                         <TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/next.png')}
-                                style={styles.ellipse2} />
+                                style={[styles.ellipse2, styles.Icons]} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -81,7 +81,7 @@ export default function Test() {
                 <View style={styles.djContainer}>
                     <View style={styles.djHead}>
                         <Image
-                            source={require('../assets/icons/guitar.png')} />
+                            source={require('../assets/icons/guitar.png')} style={styles.headIcon} />
                         <Text style={styles.textDj}>Upcoming Shows</Text>
                     </View>
 
@@ -107,7 +107,7 @@ export default function Test() {
                 <View style={styles.djContainer}>
                     <View style={styles.djHead}>
                         <Image
-                            source={require('../assets/icons/mike.png')} />
+                            source={require('../assets/icons/mike.png')} style={styles.headIcon} />
                         <Text style={styles.textDj}>DJs</Text>
                     </View>
                     <View style={styles.djTeam}>
@@ -185,6 +185,7 @@ const styles = StyleSheet.create({
         zIndex: 3
     },
     ellipseVal: { position: 'absolute', top: '33%', color: 'white', fontWeight: '700', fontSize: 50, left: '26%' },
+    Icons: { width: 50, height: 50 },
     homeBtns: {
         position: 'absolute',
         bottom: '10%',
@@ -216,6 +217,7 @@ const styles = StyleSheet.create({
     djContainer: {
         marginVertical: 30,
         gap: 40,
+        marginTop: 70
     },
     djHead: {
         marginHorizontal: 20,
@@ -227,6 +229,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
+    headIcon: { width: 50, height: 50 },
     textDj: {
         fontWeight: '700',
         fontSize: 25,

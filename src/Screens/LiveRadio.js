@@ -38,7 +38,7 @@ export default function LiveRadio() {
                         <View style={styles.controles}>
                             <Image
                                 source={require('../assets/icons/volumeDown.png')}
-                                style={styles.goBack} />
+                                style={styles.resume} />
                             <TouchableOpacity>
                                 <Image
                                     source={require('../assets/icons/resume.png')}
@@ -46,19 +46,18 @@ export default function LiveRadio() {
                             </TouchableOpacity>
                             <Image
                                 source={require('../assets/icons/volumeUp.png')}
-                                style={styles.goBack} />
+                                style={styles.resume} />
                         </View>
                         <View>
                             <Image
                                 source={require('../assets/icons/volumeUp.png')}
-                                style={styles.goBack} />
+                                style={styles.resume} />
                         </View>
                     </View>
                 </View>
                 <View>
                     <Image
-                        source={require('../assets/footer.png')}
-                        style={styles.goBack} />
+                        source={require('../assets/footer.png')} />
                 </View>
 
             </ScrollView>

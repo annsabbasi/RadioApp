@@ -38,12 +38,12 @@ export default function UpComing() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -59,12 +59,12 @@ export default function UpComing() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -80,12 +80,12 @@ export default function UpComing() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -101,12 +101,12 @@ export default function UpComing() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -192,5 +192,6 @@ const styles = StyleSheet.create({
     cardsTimeInfoMain: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 10 },
     cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 5 },
     showHeadText: { fontSize: 20, fontWeight: '700' },
+    primaryIcons: { width: 20, height: 20 },
     textSizeGlobal: { fontSize: 16, color: 'gray' },
 });

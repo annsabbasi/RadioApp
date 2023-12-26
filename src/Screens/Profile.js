@@ -43,7 +43,7 @@ export default function UserProfile() {
                             <View style={styles.profileInfo}>
                                 <Image
                                     source={require('../assets/icons/user.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                                 <View>
                                     <Text style={styles.heading}>Name</Text>
                                     <Text style={styles.paragraph}>Mike Husky</Text>
@@ -52,14 +52,14 @@ export default function UserProfile() {
                             <TouchableOpacity>
                                 <Image
                                     source={require('../assets/icons/edit.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                             </TouchableOpacity>
                         </View>
                         <View style={styles.infoCardItem}>
                             <View style={styles.profileInfo}>
                                 <Image
                                     source={require('../assets/icons/mail.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                                 <View>
                                     <Text style={styles.heading}>Email</Text>
                                     <Text style={styles.paragraph}>Hello@gmail.com</Text>
@@ -70,7 +70,7 @@ export default function UserProfile() {
                             <View style={styles.profileInfo}>
                                 <Image
                                     source={require('../assets/icons/lock.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                                 <View>
                                     <Text style={styles.heading}>Password</Text>
                                     <Text style={styles.paragraph}>**********</Text>
@@ -81,7 +81,7 @@ export default function UserProfile() {
                             <View style={styles.profileInfo}>
                                 <Image
                                     source={require('../assets/icons/Frame.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                                 <View>
                                     <Text style={styles.heading}>Country</Text>
                                     <Text style={styles.paragraph}>United States of America</Text>
@@ -92,7 +92,7 @@ export default function UserProfile() {
                             <View style={styles.profileInfo}>
                                 <Image
                                     source={require('../assets/icons/phone.png')}
-                                    style={styles.cameraLogo} />
+                                    style={styles.primaryIcon} />
                                 <View>
                                     <Text style={styles.heading}>Phone</Text>
                                     <Text style={styles.paragraph}>+1234567890</Text>
@@ -216,6 +216,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10
     },
+    primaryIcon: { width: 20, height: 20 },
     heading: {
         fontSize: 14,
         fontWeight: '600'

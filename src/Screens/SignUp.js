@@ -110,12 +110,13 @@ const styles = StyleSheet.create({
     formContainer: {
         gap: 30
     },
+    email: { width: 20, height: 20 },
     emailText: {
         fontSize: 16,
         color: "gray",
         fontWeight: "600",
         marginTop: 20,
-        marginBottom: 10
+        marginBottom: 10,
     },
     inputMain: {
         flexDirection: "row",

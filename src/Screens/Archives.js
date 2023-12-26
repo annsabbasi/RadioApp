@@ -29,7 +29,7 @@ export default function Archives() {
                 <View style={styles.searchContainer}>
                     <Image
                         source={require('../assets/icons/Union.png')}
-                        style={styles.goBack} />
+                        style={styles.primaryIcon} />
                     <TextInput
                         style={styles.input}
                         placeholder="Search the archives"
@@ -148,6 +148,7 @@ const styles = StyleSheet.create({
     },
     textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
     searchContainer: { width: '90%', alignSelf: 'center', marginVertical: 30, borderWidth: 1, borderColor: 'silver', justifyContent: 'center', flexDirection: 'row', backgroundColor: '#F6F6F6', alignItems: 'center', paddingVertical: 10, borderRadius: 5, gap: 5, paddingHorizontal: 10 },
+    primaryIcon: { width: 25, height: 25 },
     input: {
         // height: 40,
         borderColor: 'transparent',

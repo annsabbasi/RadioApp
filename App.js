@@ -21,7 +21,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       {/* <Splash /> */}
-      <SignUp />
+      {/* <SignUp /> */}
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
@@ -33,7 +33,7 @@ export default function App() {
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
-      {/* <Shows /> */}
+      <Shows />
       {/* <Test /> */}
     </View>
   );

@@ -60,7 +60,7 @@ export default function DjProfile() {
                 <View style={styles.showContainer}>
                     <View style={styles.djHead}>
                         <Image
-                            source={require('../assets/icons/guitar.png')} />
+                            source={require('../assets/icons/guitar.png')} style={styles.headIcon} />
                         <Text style={styles.textDj}>Shows</Text>
                     </View>
 
@@ -73,12 +73,12 @@ export default function DjProfile() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -94,12 +94,12 @@ export default function DjProfile() {
                             <View style={styles.cardsTimeInfoMain}>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/calendar.png')} />
+                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
                                 </View>
                                 <View style={styles.cardsTimeInfo}>
                                     <Image
-                                        source={require('../assets/icons/clock.png')} />
+                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
                                     <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
                                 </View>
                             </View>
@@ -211,6 +211,7 @@ const styles = StyleSheet.create({
     //     flexDirection: 'row',
     //     justifyContent: 'space-around',
     // },
+    headIcon: { width: 50, height: 50 },
     textDj: {
         fontWeight: '700',
         fontSize: 25,
@@ -247,7 +248,8 @@ const styles = StyleSheet.create({
         gap: 5
     },
     cardsTimeInfoMain: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 10 },
-    cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 5 },
+    cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 4 },
     showHeadText: { fontSize: 20, fontWeight: '700' },
+    primaryIcons: { width: 20, height: 20 },
     textSizeGlobal: { fontSize: 16, color: 'gray' },
 });

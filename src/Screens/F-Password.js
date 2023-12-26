@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
         gap: 60,
         marginTop: 30
     },
+    email: { width: 20, height: 20 },
     emailText: {
         fontSize: 16,
         color: "gray",
