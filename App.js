@@ -25,8 +25,8 @@ export default function App() {
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
-      <DjProfile />
-      {/* <Archives /> */}
+      {/* <DjProfile /> */}
+      <Archives />
       {/* <Profile /> */}
       {/* <UpComing /> */}
       {/* <LiveRadio /> */}

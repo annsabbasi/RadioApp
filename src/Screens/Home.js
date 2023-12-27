@@ -17,6 +17,7 @@ import previousIcon from '../assets/icons/previous.png';
 import pauseIcon from '../assets/icons/pause.png';
 import nextIcon from '../assets/icons/next.png';
 import mikeIcon from '../assets/icons/mike.png';
+import guitar from '../assets/icons/guitar.png';
 import MaleAvatar from '../assets/MaleAvatar.png';
 import FemaleAvatar from '../assets/FemaleAvatar.png';
 import { StatusBar } from 'expo-status-bar';
@@ -63,19 +64,19 @@ export default function Test() {
                         <Image source={vectorIcon} style={styles.power} />
                     </View>
                     <View style={styles.ellipseVol}>
-                        <Image source={ellipse2Icon} style={styles.ellipse2} />
+                        <Image source={ellipse2Icon} />
                         <Text style={styles.ellipseVal}>103.5</Text>
                     </View>
 
                     <View style={styles.homeBtns}>
                         <TouchableOpacity>
-                            <Image source={previousIcon} style={[styles.ellipse2, styles.Icons]} />
+                            <Image source={previousIcon} style={styles.Icons} />
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Image source={pauseIcon} style={[styles.ellipse2, styles.Icons]} />
+                            <Image source={pauseIcon} style={styles.Icons} />
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <Image source={nextIcon} style={[styles.ellipse2, styles.Icons]} />
+                            <Image source={nextIcon} style={styles.Icons} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -109,13 +110,13 @@ export default function Test() {
 
                 <View style={styles.djContainer}>
                     <View style={styles.djHead}>
-                        <Image source={mikeIcon} style={styles.headIcon} />
+                        <Image source={guitar} style={styles.headIcon} />
                         <Text style={styles.textDj}>DJs</Text>
                     </View>
                     <View style={styles.djTeam}>
                         {['Bridget', 'Ronan', 'Bridget', 'Ronan'].map((name, index) => (
                             <TouchableOpacity key={index} style={styles.person}>
-                                <Image source={index % 2 === 0 ? MaleAvatar : FemaleAvatar} style={styles.ellipse2} />
+                                <Image source={index % 2 === 0 ? MaleAvatar : FemaleAvatar} />
                                 <Text style={styles.Dj}>{name}</Text>
                             </TouchableOpacity>
                         ))}
@@ -135,9 +136,6 @@ const styles = StyleSheet.create({
     },
     ellipseHome: {
         position: 'relative',
-        width: '100%',
-    },
-    image: {
         width: '100%',
     },
     header: {
@@ -169,8 +167,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         zIndex: 3,
     },
-    ellipseVal: { position: 'absolute', top: '33%', color: 'white', fontWeight: '700', fontSize: 50, left: '26%' },
-    Icons: { width: 50, height: 50 },
     homeBtns: {
         position: 'absolute',
         bottom: '10%',
@@ -214,7 +210,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
-    headIcon: { width: 50, height: 50 },
     textDj: {
         fontWeight: '700',
         fontSize: 25,
@@ -247,4 +242,8 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
     },
+    image: { width: '100%', },
+    ellipseVal: { position: 'absolute', top: '33%', color: 'white', fontWeight: '700', fontSize: 50, left: '26%' },
+    Icons: { width: 50, height: 50 },
+    headIcon: { width: 50, height: 50 },
 });
