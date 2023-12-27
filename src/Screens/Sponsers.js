@@ -1,74 +1,60 @@
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar, } from 'react-native';
 
-export default function Sponsers() {
+const sponsorRows = [
+    [require('../assets/cola.png'), require('../assets/ceat.png')],
+    [require('../assets/ford.png'), require('../assets/huawei.png')],
+    [require('../assets/bajaj.png')],
+];
+
+export default function Sponsors() {
     return (
         <SafeAreaView>
+            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
-                <View style={styles.ellipseHome}>
-                    <Image
-                        source={require('../assets/Ellipse3.png')}
-                        style={styles.image} />
-                    <View style={{ position: 'absolute', left: -80, width: '10%', top: -10 }}>
-                        <Image
-                            source={require('../assets/Ellipse3Shade.png')}
-                            style={styles.goBack} />
+                <View style={[styles.ellipseHome, styles.relative]}>
+                    <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
+                    <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
+                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
                     </View>
                     <View style={styles.header}>
-                        <Image
-                            source={require('../assets/icons/goBack.png')}
-                            style={styles.goBack} />
+                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         <View style={styles.alignCenter}>
-                            <Text style={styles.textHead}>Sponsers</Text>
-                            <Text style={styles.textParagraph}>Our Proud Sponsers</Text>
+                            <Text style={styles.textHead}>Sponsors</Text>
+                            <Text style={styles.textParagraph}>Our Proud Sponsors</Text>
                         </View>
                         <Text>{''}</Text>
                     </View>
                 </View>
-
                 <View style={styles.cardsContainer}>
-                    <View style={styles.row}>
-                        <Image
-                            source={require('../assets/cola.png')}
-                            style={styles.cardsItem} />
-                        <Image
-                            source={require('../assets/ceat.png')}
-                            style={styles.cardsItem} />
-                    </View>
-                    <View style={styles.row}>
-                        <Image
-                            source={require('../assets/ford.png')}
-                            style={styles.cardsItem} />
-                        <Image
-                            source={require('../assets/huawei.png')}
-                            style={styles.cardsItem} />
-                    </View>
-                    <View style={styles.rowLast}>
-                        <Image
-                            source={require('../assets/bajaj.png')}
-                            style={styles.cardsItem} />
-                        <Image
-                            // source={require('../assets/cola.png')}
-                            style={styles.cardsItem} />
-                    </View>
+                    {sponsorRows.map((row, index) => (
+                        <View key={index} style={[styles.row, index === sponsorRows.length - 1 && styles.rowLast]}>
+                            {row.map((sponsor, value) => (
+                                <Image key={value} source={sponsor} style={styles.cardsItem} />
+                            ))}
+                        </View>
+                    ))}
                 </View>
-
             </ScrollView>
         </SafeAreaView>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20
-        // backgroundColor: 'green',
     },
     ellipseHome: {
-        position: 'relative',
         width: '100%',
-        // bottom: 50,
-        marginTop: -80
+        marginTop: -70
+    },
+    relative: {
+        position: 'relative',
+    },
+    absolute: {
+        position: 'absolute',
+        zIndex: 3,
+        gap: 10,
     },
     image: {
         width: '100%',
@@ -83,18 +69,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 25,
     },
-    alignCenter: { alignItems: 'center', gap: 5 },
     textHead: {
         fontSize: 30,
         fontWeight: '700',
         color: 'white',
     },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
-
     cardsContainer: {
         flex: 1,
         paddingVertical: 16,
-        marginTop: 30
+        marginTop: 30,
     },
     row: {
         flexDirection: 'row',
@@ -105,22 +88,17 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingVertical: 20,
         alignItems: 'center',
-        // borderWidth: 2,
     },
     cardsItem: {
-        // width: '30%',
-        // height: 110,
         alignSelf: 'center',
         alignItems: 'center',
     },
     rowLast: {
-        // flexDirection: 'row',
-        // justifyContent: 'space-between',
         marginBottom: 30,
-        width: '97%',
+        width: '60%',
         alignSelf: 'center',
         paddingVertical: 20,
-        // alignItems: 'center',
-        // borderWidth: 2,
     },
-})
+    alignCenter: { alignItems: 'center', gap: 5 },
+    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
+});

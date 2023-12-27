@@ -1,16 +1,16 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
 
 export default function ShowsContact() {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
                 <View style={styles.showContactMain}>
                     <View style={styles.mainLogoItem}>
                         <Image
                             source={require('../assets/BKLR.png')}
-                            style={styles.mainlogo}
-                        />
+                            style={styles.mainlogo} />
                     </View>
                     <View style={styles.headText}>
                         <Text style={styles.heading}>Contact Us</Text>
@@ -18,14 +18,12 @@ export default function ShowsContact() {
                     </View>
 
                     <View style={styles.formContainer}>
-
                         <View style={styles.formItem}>
                             <Text style={styles.emailText}>Email</Text>
                             <View style={styles.inputMain}>
                                 <Image
                                     source={require('../assets/icons/mail.png')}
-                                    style={styles.email}
-                                />
+                                    style={styles.email} />
                                 <TextInput style={styles.inputEmail} placeholder='examplename' />
                             </View>
                         </View>
@@ -33,17 +31,11 @@ export default function ShowsContact() {
                         <View style={styles.formItem}>
                             <Text style={styles.emailText}>Message</Text>
                             <View style={styles.inputTextarea}>
-                                {/* <Image
-                                    source={require('../assets/icons/lock.png')}
-                                    style={styles.email}
-                                /> */}
-                                {/* <TextInput style={styles.inputEmail} placeholder='********' /> */}
                                 <TextInput
                                     style={styles.textarea}
                                     multiline
                                     numberOfLines={8}
-                                    placeholder="Type your message here."
-                                />
+                                    placeholder="Type your message here." />
                             </View>
                         </View>
 
@@ -53,28 +45,23 @@ export default function ShowsContact() {
                                 <Text style={[styles.signupText, styles.textBold]}>SUBMIT</Text>
                                 <Image
                                     source={require('../assets/icons/logIn.png')}
-                                    style={styles.email}
-                                />
+                                    style={styles.email} />
                             </TouchableOpacity>
                         </View>
                     </View>
 
-
                     <View style={styles.haveAccount}>
-                        {/* <Text style={[styles.text, style = { color: 'gray' }]}>Don't have an account? <Text style={[styles.textBold, style = { color: 'black' }]}> Sign up</Text></Text> */}
                         <Text style={styles.headTextVia}>Or Contact us via.</Text>
                         <View style={styles.contactVia}>
                             <Image
                                 source={require('../assets/icons/mail.png')}
-                                style={styles.email}
-                            />
+                                style={styles.email} />
                             <Text style={styles.infoTextVia}>Balina@gmail.com</Text>
                         </View>
                         <View style={styles.contactVia}>
                             <Image
                                 source={require('../assets/icons/mail.png')}
-                                style={styles.email}
-                            />
+                                style={styles.email} />
                             <Text style={styles.infoTextVia}>124-230-5523</Text>
                         </View>
                     </View>
@@ -87,22 +74,8 @@ export default function ShowsContact() {
 
 const styles = StyleSheet.create({
     container: {
-        // padding: 10,
         flex: 1,
-        // width: '95%',
-        marginTop: 20
-    },
-    showContactMain: {
-        // width: '90%',
-        // alignSelf: 'center',
-        paddingHorizontal: 30,
-    },
-    mainLogoItem: {
-        alignSelf: 'center',
-        paddingVertical: 40,
-    },
-    headText: {
-        marginVertical: 10,
+        // marginTop: 20
     },
     heading: {
         fontWeight: '800',
@@ -115,11 +88,6 @@ const styles = StyleSheet.create({
         color: 'gray',
         marginBottom: 10,
     },
-    formContainer: {
-        gap: 40,
-        marginTop: 30
-    },
-    email: { width: 20, height: 20 },
     emailText: {
         fontSize: 16,
         color: "gray",
@@ -128,17 +96,10 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     textarea: {
-        // borderWidth: 1,
-        // borderColor: '#ccc',
         borderRadius: 8,
         padding: 15,
         fontSize: 14,
-        // minHeight: 100,
-        // backgroundColor: 'red',
         backgroundColor: '#E8E8E8',
-        // alignItems: 'flex-start',
-        // alignSelf: 'flex-start',
-        // justifyContent: 'flex-start',
         textAlignVertical: "top"
     },
     inputMain: {
@@ -150,12 +111,6 @@ const styles = StyleSheet.create({
         borderBottomColor: 'silver',
         borderWidth: 1,
         gap: 10
-    },
-    inputEmail: {
-        flex: 1
-    },
-    textBold: {
-        fontWeight: '700',
     },
     btnContainer: {
         alignSelf: 'center',
@@ -178,11 +133,7 @@ const styles = StyleSheet.create({
         borderWidth: 0,
         backgroundColor: 'rgba(119, 162, 29, 1)'
     },
-    signupText: {
-        color: 'white',
-    },
     haveAccount: {
-        // alignSelf: 'center',
         marginVertical: 60,
         gap: 10
     },
@@ -200,4 +151,12 @@ const styles = StyleSheet.create({
         gap: 10,
         marginBottom: 20,
     },
+    showContactMain: { paddingHorizontal: 30, marginTop: 40 },
+    mainLogoItem: { alignSelf: 'center', paddingVertical: 40, },
+    headText: { marginVertical: 10, },
+    formContainer: { gap: 40, marginTop: 30 },
+    email: { width: 20, height: 20 },
+    inputEmail: { flex: 1 },
+    textBold: { fontWeight: '700', },
+    signupText: { color: 'white', },
 })

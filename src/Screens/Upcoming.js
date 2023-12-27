@@ -1,120 +1,87 @@
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar } from 'react-native';
+
+const showData = [
+    {
+        image: '18',
+        title: 'Country & Irish With Dj Ronan',
+        host: 'Ronan Ryazn',
+        image: require('../assets/18.png'),
+        timeInfo: [
+            { icon: require('../assets/icons/calendar.png'), text: 'Saturday, 18 Feb' },
+            { icon: require('../assets/icons/clock.png'), text: '10:00 AM' },
+        ],
+    },
+    {
+        image: '18',
+        title: 'Country & Irish With Dj Ronan',
+        host: 'Ronan Ryazn',
+        image: require('../assets/27.png'),
+        timeInfo: [
+            { icon: require('../assets/icons/calendar.png'), text: 'Saturday, 18 Feb' },
+            { icon: require('../assets/icons/clock.png'), text: '10:00 AM' },
+        ],
+    },
+    {
+        image: '18',
+        title: 'Country & Irish With Dj Ronan',
+        host: 'Ronan Ryazn',
+        image: require('../assets/18.png'),
+        timeInfo: [
+            { icon: require('../assets/icons/calendar.png'), text: 'Saturday, 18 Feb' },
+            { icon: require('../assets/icons/clock.png'), text: '10:00 AM' },
+        ],
+    },
+    {
+        image: '18',
+        title: 'Country & Irish With Dj Ronan',
+        host: 'Ronan Ryazn',
+        image: require('../assets/27.png'),
+        timeInfo: [
+            { icon: require('../assets/icons/calendar.png'), text: 'Saturday, 18 Feb' },
+            { icon: require('../assets/icons/clock.png'), text: '10:00 AM' },
+        ],
+    },
+];
 
 export default function UpComing() {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
-
-                <View style={styles.ellipseHome}>
-                    <Image
-                        source={require('../assets/Ellipse3.png')}
-                        style={styles.image} />
-                    <View style={{ position: 'absolute', left: -80, width: '10%', top: -10 }}>
-                        <Image
-                            source={require('../assets/Ellipse3Shade.png')}
-                            style={styles.goBack} />
+                <View style={[styles.ellipseHome, styles.relative]}>
+                    <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
+                    <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
+                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
                     </View>
                     <View style={styles.header}>
-                        <Image
-                            source={require('../assets/icons/goBack.png')}
-                            style={styles.goBack} />
+                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         <View style={styles.alignCenter}>
                             <Text style={styles.textHead}>UpComing Shows</Text>
-                            {/* <Text style={styles.textParagraph}>{''}</Text> */}
                         </View>
                         <Text>{''}</Text>
                     </View>
                 </View>
 
                 <View style={styles.showContainer}>
-
-                    <View style={styles.showsCard}>
-                        <Image
-                            source={require('../assets/18.png')} style={styles.eighteen} />
-                        <View style={styles.cardContent}>
-                            <Text style={styles.showHeadText}>Country & Irish With Dj Ronan</Text>
-                            <Text style={styles.textSizeGlobal}>Ronan Ryazn</Text>
-                            <View style={styles.cardsTimeInfoMain}>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
-                                </View>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
+                    {showData.map((show, index) => (
+                        <View key={index} style={styles.showsCard}>
+                            <Image source={show.image} style={styles.eighteen} />
+                            <View style={styles.cardContent}>
+                                <Text style={styles.showHeadText}>{show.title}</Text>
+                                <Text style={styles.textSizeGlobal}>{show.host}</Text>
+                                <View style={styles.cardsTimeInfoMain}>
+                                    {show.timeInfo.map((info, i) => (
+                                        <View key={i} style={styles.cardsTimeInfo}>
+                                            <Image source={info.icon} style={styles.primaryIcons} />
+                                            <Text style={styles.textSizeGlobal}>{info.text}</Text>
+                                        </View>
+                                    ))}
                                 </View>
                             </View>
                         </View>
-                    </View>
-
-                    <View style={styles.showsCard}>
-                        <Image
-                            source={require('../assets/27.png')} style={styles.eighteen} />
-                        <View style={styles.cardContent}>
-                            <Text style={styles.showHeadText}>Country & Irish With Dj Ronan</Text>
-                            <Text style={styles.textSizeGlobal}>Ronan Ryazn</Text>
-                            <View style={styles.cardsTimeInfoMain}>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
-                                </View>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.showsCard}>
-                        <Image
-                            source={require('../assets/18.png')} style={styles.eighteen} />
-                        <View style={styles.cardContent}>
-                            <Text style={styles.showHeadText}>Country & Irish With Dj Ronan</Text>
-                            <Text style={styles.textSizeGlobal}>Ronan Ryazn</Text>
-                            <View style={styles.cardsTimeInfoMain}>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
-                                </View>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.showsCard}>
-                        <Image
-                            source={require('../assets/27.png')} style={styles.eighteen} />
-                        <View style={styles.cardContent}>
-                            <Text style={styles.showHeadText}>Country & Irish With Dj Ronan</Text>
-                            <Text style={styles.textSizeGlobal}>Ronan Ryazn</Text>
-                            <View style={styles.cardsTimeInfoMain}>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/calendar.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>Saturday, 18 Feb</Text>
-                                </View>
-                                <View style={styles.cardsTimeInfo}>
-                                    <Image
-                                        source={require('../assets/icons/clock.png')} style={styles.primaryIcons} />
-                                    <Text style={styles.textSizeGlobal}>10: 00 AM</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-
+                    ))}
                 </View>
-
             </ScrollView>
         </SafeAreaView>
     )
@@ -123,14 +90,18 @@ export default function UpComing() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20
-        // backgroundColor: 'green',
     },
     ellipseHome: {
-        position: 'relative',
         width: '100%',
-        // bottom: 50,
         marginTop: -80
+    },
+    relative: {
+        position: 'relative',
+    },
+    absolute: {
+        position: 'absolute',
+        zIndex: 3,
+        gap: 10,
     },
     image: {
         width: '100%',
@@ -151,10 +122,6 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: 'white',
     },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
-    // 
-
-
     showContainer: {
         marginVertical: 70,
         gap: 40,
@@ -164,14 +131,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '90%',
-        // borderWidth: 2,
         alignSelf: 'center',
-        // paddingVertical: 15,
-        // paddingHorizontal: 15,
         padding: 15,
         borderRadius: 10,
         gap: 10,
-
         elevation: 5,
         backgroundColor: 'white',
         borderRadius: 10,
@@ -183,12 +146,11 @@ const styles = StyleSheet.create({
     eighteen: {
         width: 80,
         height: 90,
-        borderRadius: 10
+        borderRadius: 10,
     },
     cardContent: {
         width: '75%',
-        // borderWidth: 2,
-        gap: 5
+        gap: 5,
     },
     cardsTimeInfoMain: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 10 },
     cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 5 },

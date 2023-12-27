@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
         padding: 10,
         flex: 1,
         paddingHorizontal: 30,
-        marginTop: 20
+        // marginTop: 20
     },
     mainLogoItem: {
         alignSelf: 'center',

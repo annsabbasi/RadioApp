@@ -1,10 +1,11 @@
-import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
 import Slider from '@react-native-community/slider';
 
 export default function ArcheiveInner() {
     return (
         <SafeAreaView style={styles.container}>
+            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
                 <View style={styles.ellipseHome}>
                     <Image
@@ -38,9 +39,11 @@ export default function ArcheiveInner() {
                                 <Text style={styles.heading}>Archeive 1</Text>
                                 <Text style={styles.paragraph}>Ronan Ryan</Text>
                             </View>
-                            <Image
-                                source={require('../assets/icons/volumeDown.png')}
-                                style={styles.resume} />
+                            <TouchableOpacity>
+                                <Image
+                                    source={require('../assets/icons/volumeDown.png')}
+                                    style={styles.resume} />
+                            </TouchableOpacity>
                         </View>
 
                         <View style={styles.timeLapsContent}>
@@ -62,17 +65,21 @@ export default function ArcheiveInner() {
                         </View>
 
                         <View style={styles.controles}>
-                            <Image
-                                source={require('../assets/icons/audioprev.png')}
-                                style={styles.goBack} />
+                            <TouchableOpacity>
+                                <Image
+                                    source={require('../assets/icons/audioprev.png')}
+                                    style={styles.resume} />
+                            </TouchableOpacity>
                             <TouchableOpacity>
                                 <Image
                                     source={require('../assets/icons/resume.png')}
                                     style={styles.resume} />
                             </TouchableOpacity>
-                            <Image
-                                source={require('../assets/icons/audionext.png')}
-                                style={styles.goBack} />
+                            <TouchableOpacity>
+                                <Image
+                                    source={require('../assets/icons/audionext.png')}
+                                    style={styles.resume} />
+                            </TouchableOpacity>
                         </View>
                     </View>
                 </View>
@@ -89,15 +96,12 @@ export default function ArcheiveInner() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20
+        // marginTop: 20
     },
     ellipseHome: {
         position: 'relative',
         width: '100%',
         marginTop: -80
-    },
-    image: {
-        width: '100%',
     },
     header: {
         flexDirection: 'row',
@@ -109,15 +113,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 25,
     },
-    alignCenter: { alignItems: 'center', gap: 5 },
     textHead: {
         fontSize: 30,
         fontWeight: '700',
         color: 'white',
     },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
-
-
     musicContainer: {
         alignItems: 'center',
         marginVertical: 50,
@@ -152,7 +152,6 @@ const styles = StyleSheet.create({
     channelImg: {
         width: '100%',
         borderRadius: 10,
-
     },
     heading: {
         fontSize: 26,
@@ -172,7 +171,10 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     resume: {
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
     },
+    image: { width: '100%', },
+    alignCenter: { alignItems: 'center', gap: 5 },
+    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });

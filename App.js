@@ -26,13 +26,13 @@ export default function App() {
       {/* <FPassword /> */}
       {/* <Home /> */}
       {/* <DjProfile /> */}
-      <Archives />
+      {/* <Archives /> */}
       {/* <Profile /> */}
       {/* <UpComing /> */}
       {/* <LiveRadio /> */}
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
-      {/* <ArcheiveInner /> */}
+      <ArcheiveInner />
       {/* <Shows /> */}
       {/* <Test /> */}
     </View>
