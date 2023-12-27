@@ -1,15 +1,16 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+
+import logoImage from '../assets/BKLR.png';
+import checkIcon from '../assets/icons/check.png';
+import arrowRightIcon from '../assets/icons/arrowright.png';
 
 export default function FPassword() {
     return (
         <SafeAreaView style={styles.container}>
             <View>
                 <View style={styles.mainLogoItem}>
-                    <Image
-                        source={require('../assets/BKLR.png')}
-                        style={styles.mainlogo}
-                    />
+                    <Image source={logoImage} style={styles.mainlogo} />
                 </View>
                 <View style={styles.headText}>
                     <Text style={styles.heading}>Password Recovery</Text>
@@ -17,31 +18,35 @@ export default function FPassword() {
                 </View>
 
                 <View style={styles.formContainer}>
-
-                    <View style={styles.formItem}>
-                        <Text style={styles.emailText}>Email for recovery</Text>
-                        <View style={styles.inputMain}>
-                            <TextInput style={styles.inputEmail} placeholder='example@gmail.com' />
-                            <Image
-                                source={require('../assets/icons/check.png')}
-                                style={styles.email}
-                            />
-                        </View>
-                    </View>
-
-                    <View style={styles.btnContainer}>
-                        <TouchableOpacity style={styles.btn}>
-                            <Text>{''}</Text>
-                            <Text style={[styles.signupText, styles.textBold]}>CONTINUE</Text>
-                            <Image
-                                source={require('../assets/icons/arrowright.png')}
-                                style={styles.email}
-                            />
-                        </TouchableOpacity>
-                    </View>
+                    {renderFormItem('Email for recovery')}
+                    {renderContinueButton()}
                 </View>
             </View>
         </SafeAreaView>
+    );
+};
+
+const renderFormItem = (label) => {
+    return (
+        <View style={styles.formItem}>
+            <Text style={styles.emailText}>{label}</Text>
+            <View style={styles.inputMain}>
+                <TextInput style={styles.inputEmail} placeholder="example@gmail.com" />
+                <Image source={checkIcon} style={styles.email} />
+            </View>
+        </View>
+    );
+};
+
+const renderContinueButton = () => {
+    return (
+        <View style={styles.btnContainer}>
+            <TouchableOpacity style={styles.btn}>
+                <Text>{''}</Text>
+                <Text style={[styles.signupText, styles.textBold]}>CONTINUE</Text>
+                <Image source={arrowRightIcon} style={styles.email} />
+            </TouchableOpacity>
+        </View>
     );
 };
 
@@ -49,7 +54,8 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         flex: 1,
-        paddingHorizontal: 30
+        paddingHorizontal: 30,
+        marginTop: 20,
     },
     mainLogoItem: {
         alignSelf: 'center',
@@ -62,7 +68,7 @@ const styles = StyleSheet.create({
         fontWeight: '800',
         fontSize: 28,
         paddingVertical: 6,
-        marginTop: 10
+        marginTop: 10,
     },
     paragraph: {
         fontSize: 15,
@@ -71,19 +77,19 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         gap: 60,
-        marginTop: 30
+        marginTop: 30,
     },
     email: { width: 20, height: 20 },
     emailText: {
         fontSize: 16,
-        color: "gray",
-        fontWeight: "600",
+        color: 'gray',
+        fontWeight: '600',
         marginTop: 20,
-        marginBottom: 30
+        marginBottom: 30,
     },
     inputMain: {
-        flexDirection: "row",
-        alignItems: "center",
+        flexDirection: 'row',
+        alignItems: 'center',
         borderTopWidth: 0,
         borderRightWidth: 0,
         borderLeftWidth: 0,
@@ -91,10 +97,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         gap: 10,
         paddingVertical: 15,
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
     },
     inputEmail: {
-        flex: 1
+        flex: 1,
     },
     textBold: {
         fontWeight: '700',
@@ -102,12 +108,7 @@ const styles = StyleSheet.create({
     btnContainer: {
         alignSelf: 'center',
         width: '100%',
-        marginTop: 40
-    },
-    linearGradient: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginTop: 40,
     },
     btn: {
         flexDirection: 'row',
@@ -118,9 +119,9 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        backgroundColor: 'rgba(119, 162, 29, 1)'
+        backgroundColor: 'rgba(119, 162, 29, 1)',
     },
     signupText: {
         color: 'white',
     },
-})
+});

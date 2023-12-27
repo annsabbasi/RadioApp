@@ -25,7 +25,7 @@ export default function App() {
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
-      {/* <DjProfile /> */}
+      <DjProfile />
       {/* <Archives /> */}
       {/* <Profile /> */}
       {/* <UpComing /> */}
@@ -33,7 +33,7 @@ export default function App() {
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
-      <Shows />
+      {/* <Shows /> */}
       {/* <Test /> */}
     </View>
   );

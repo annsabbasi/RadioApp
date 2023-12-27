@@ -40,7 +40,7 @@ export default function ArcheiveInner() {
                             </View>
                             <Image
                                 source={require('../assets/icons/volumeDown.png')}
-                                style={styles.goBack} />
+                                style={styles.resume} />
                         </View>
 
                         <View style={styles.timeLapsContent}>
@@ -89,6 +89,7 @@ export default function ArcheiveInner() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginTop: 20
     },
     ellipseHome: {
         position: 'relative',

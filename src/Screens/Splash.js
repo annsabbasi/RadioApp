@@ -1,19 +1,32 @@
-import { View, Text, SafeAreaView, Image, StyleSheet } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { View, Image, StyleSheet, StatusBar } from 'react-native';
 
-export default function Splash() {
+const Splash = () => {
     return (
-        <SafeAreaView>
+        <View style={styles.container}>
+            {/* <StatusBar backgroundColor="#ffffff" barStyle="dark-content" /> */}
+            <StatusBar backgroundColor="#97AE26" barStyle="dark-content" />
             <Image
                 source={require('../assets/Splash.png')}
-                style={styles.ellipse2} />
-        </SafeAreaView>
-    )
+                style={styles.image}
+                resizeMode="cover"
+            />
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-    ellipse2: {
-        width: '100%',
-        height: '100%'
+    container: {
+        flex: 1,
+        backgroundColor: '#ffffff',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
-})
+    image: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+    },
+});
+
+export default Splash;
