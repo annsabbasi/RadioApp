@@ -21,10 +21,12 @@ export default function Archives() {
                 <View style={styles.ellipseHome}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={{ position: 'absolute', left: -80, width: '10%', top: -10 }}>
-                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
+                        <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        </TouchableOpacity>
                         <View style={styles.alignCenter}>
                             <Text style={styles.textHead}>Archives</Text>
                             <Text style={styles.textParagraph}>Lorem ipsum dolor sit amet,</Text>
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 20,
         position: 'absolute',
-        bottom: 90,
+        bottom: 70,
         width: '100%',
         alignItems: 'center',
         marginTop: 25,
@@ -118,6 +120,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    goBack: { width: 35, height: 35 },
     image: { width: '100%', },
     alignCenter: { alignItems: 'center', gap: 5 },
     textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },

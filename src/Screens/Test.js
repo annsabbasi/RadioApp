@@ -1,240 +1,185 @@
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Platform } from 'react-native';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
-export default function Home() {
+import logoImage from '../assets/BKLR.png';
+import mailIcon from '../assets/icons/mail.png';
+import userIcon from '../assets/icons/user.png';
+import lockIcon from '../assets/icons/lock.png';
+import eyeIcon from '../assets/icons/eye.png';
+import loginIcon from '../assets/icons/logIn.png';
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollViewRef = useRef();
+export default function SignUp() {
+  const [check, setCheck] = useState(false);
 
-  const handleScroll = (event) => {
-    const contentOffsetX = event.nativeEvent.contentOffset.x;
-    // const index = Math.round(contentOffsetX / Dimensions.get('window').width);
-    // setCurrentIndex(index);
-    const index = contentOffsetX / Dimensions.get('window').width;
-    setCurrentIndex(index);
+  const checkShown = () => {
+    setCheck(!check)
   };
-
-  const data = [
-    { title: 'Item 1' },
-    { title: 'Item 2' },
-    { title: 'Item 3' },
-    { title: 'Item 1' },
-    { title: 'Item 2' },
-    { title: 'Item 3' },
-  ];
-
-
-  const itemWidth = Dimensions.get('window').width / 3;
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.ellipseHome}>
-          <Image
-            source={require('../assets/EllipseHome.png')}
-            style={styles.image} />
-          <View style={styles.header}>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/icons/hamburger.png')}
-                style={styles.hamburger} />
-            </TouchableOpacity>
-            <Text style={styles.centeredText}>Home</Text>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/icons/power.png')}
-                style={styles.power} />
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.centeredContainer}>
-            <Image
-              source={require('../assets/icons/Vector.png')}
-              style={styles.power} />
-          </View>
-          <View style={styles.ellipseVol}>
-            <Image
-              source={require('../assets/icons/Ellipse2.png')}
-              style={styles.ellipse2} />
-            <Text style={styles.ellipseVal}>103.5</Text>
-          </View>
-
-          <View style={styles.homeBtns}>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/icons/previous.png')}
-                style={styles.ellipse2} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/icons/pause.png')}
-                style={styles.ellipse2} />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/icons/next.png')}
-                style={styles.ellipse2} />
-            </TouchableOpacity>
-          </View>
+      <View>
+        <View style={styles.mainLogoItem}>
+          <Image source={logoImage} style={styles.mainlogo} />
+        </View>
+        <View style={styles.headText}>
+          <Text style={styles.heading}>Getting Started</Text>
+          <Text style={styles.paragraph}>Create an account to continue!</Text>
         </View>
 
-        <TouchableOpacity style={styles.fmTag}>
-          <Text style={styles.fmText}>Listen Our Second FM</Text>
-        </TouchableOpacity>
-
-        <View>
-          {/* <ScrollView
-                        ref={scrollViewRef}
-                        horizontal
-                        pagingEnabled
-                        showsHorizontalScrollIndicator={false}
-                        onScroll={handleScroll}
-                        scrollEventThrottle={16}
-                        style={{ flexDirection: 'row' }}
-                    >
-                        {data.map((item, index) => (
-                            <View key={index} style={[styles.item, { width: Dimensions.get('window').width / 3 }]}>
-                                <Text style={styles.title}>{item.title}</Text>
-                            </View>
-                        ))}
-                    </ScrollView> */}
-
-          <ScrollView
-            ref={scrollViewRef}
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            onScroll={handleScroll}
-            scrollEventThrottle={16}
-            snapToInterval={itemWidth}
-            decelerationRate="fast" // Optional: You can adjust the deceleration rate
-            style={{ flexDirection: 'row' }}
-          >
-            {data.map((item, index) => (
-              <View key={index} style={[styles.item, { width: itemWidth }]}>
-                <Text style={styles.title}>{item.title}</Text>
-              </View>
-            ))}
-          </ScrollView>
+        <View style={styles.formContainer}>
+          {renderFormItem('Email', mailIcon, 'example@gmail.com')}
+          {renderFormItem('Username', userIcon, 'examplename')}
+          {renderFormItem('Password', lockIcon, '********', true)}
         </View>
 
-      </ScrollView>
+        <View style={styles.checkboxContainer}>
+          <View style={styles.checkbox}>
+            {check && <Text>&#10003;</Text>}
+          </View>
+          <Text style={styles.text} onPress={checkShown}>
+            By creating an account, you agree to our {'\n'}
+            <Text style={styles.textBold}>Term & Conditions</Text>
+          </Text>
+        </View>
+
+        <View style={styles.btnContainer}>
+          <TouchableOpacity style={styles.btn}>
+            <Text>{''}</Text>
+            <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
+            <Image source={loginIcon} style={styles.email} />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.haveAccount}>
+          <Text style={[styles.text, { color: 'gray' }]}>
+            Already have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign in</Text>
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
-}
+};
+
+const renderFormItem = (label, icon, placeholder, isPassword = false) => {
+  return (
+    <View style={styles.formItem}>
+      <Text style={styles.emailText}>{label}</Text>
+      <View style={styles.inputMain}>
+        <Image source={icon} style={styles.email} />
+        <TextInput
+          style={styles.inputEmail}
+          placeholder={placeholder}
+          secureTextEntry={isPassword}
+          placeholderTextColor="gray"
+        />
+        {isPassword && <Image source={eyeIcon} style={styles.email} />}
+      </View>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
+    padding: 10,
     flex: 1,
-    backgroundColor: '#ffffff',
+    paddingHorizontal: 30,
+    // marginTop: 20
+  },
+  mainLogoItem: {
+    alignSelf: 'center',
+    paddingVertical: 40,
     marginTop: 20
   },
-  ellipseHome: {
-    position: 'relative',
-    width: '100%',
+  headText: {
+    marginVertical: 10,
   },
-  image: {
-    width: '100%',
+  heading: {
+    fontWeight: '800',
+    fontSize: 28,
+    paddingVertical: 6,
+    marginTop: 10
   },
-  header: {
-    position: 'absolute',
-    // top: '50%',
-    left: 0,
-    right: 0,
+  paragraph: {
+    fontSize: 15,
+    color: 'gray',
+    marginBottom: 10,
+  },
+  formContainer: {
+    gap: 30
+  },
+  email: { width: 20, height: 20 },
+  emailText: {
+    fontSize: 16,
+    color: "gray",
+    fontWeight: "600",
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  inputMain: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderTopWidth: 0,
+    borderRightWidth: 0,
+    borderLeftWidth: 0,
+    borderBottomColor: 'silver',
+    borderWidth: 1,
+    gap: 10
+  },
+  inputEmail: {
+    flex: 1
+  },
+  checkboxContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    padding: 20,
-    marginTop: 25,
+    gap: 15,
+    marginVertical: 25,
+    marginTop: 50,
     alignItems: 'center',
   },
-  centeredContainer: {
-    position: 'absolute',
-    top: '40%',
-    right: 0,
+  checkbox: {
+    borderWidth: 1,
+    borderColor: 'black',
+    // alignSelf: 'flex-start',
+    borderRadius: 5,
+    // paddingHorizontal: 7,
+    // paddingVertical: 5,
+    // padding: 7,
     alignItems: 'center',
-    zIndex: 2,
+    height: 25,
+    width: 25,
   },
-  centeredText: {
-    fontSize: 24,
+  textBold: {
     fontWeight: '700',
+  },
+  text: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  btnContainer: {
+    alignSelf: 'center',
+    width: '100%',
+    marginTop: 20
+  },
+  linearGradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  btn: {
+    flexDirection: 'row',
+    borderWidth: 2,
+    width: '100%',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: 20,
+    borderRadius: 25,
+    borderWidth: 0,
+    backgroundColor: 'rgba(119, 162, 29, 1)'
+  },
+  signupText: {
     color: 'white',
   },
-  ellipseVol: {
-    position: 'absolute',
-    top: '23%',
-    left: '20%',
-    alignItems: 'center',
-    zIndex: 3
-  },
-  ellipseVal: { position: 'absolute', top: '33%', color: 'white', fontWeight: '700', fontSize: 50, left: '26%' },
-  homeBtns: {
-    position: 'absolute',
-    bottom: '10%',
-    left: '20%',
-    alignItems: 'center',
-    zIndex: 3,
-    gap: 55,
-    flexDirection: 'row',
-    // width: '100%',
-    // justifyContent: 'space-between'
-  },
-  fmTag: {
-    width: '50%',
+  haveAccount: {
     alignSelf: 'center',
-    marginTop: 40,
-    marginVertical: 10,
-    padding: 15,
-    elevation: 5,
-    backgroundColor: 'white',
-    borderRadius: 10,
-    alignItems: 'center',
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 10,
-  },
-  fmText: {
-    fontSize: 14,
-    fontWeight: '700'
-  },
-
-
-
-
-  item: {
-    width: Dimensions.get('window').width,
-    // marginRight: 10,
-    height: 200,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'lightblue',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  pagination: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 10,
-  },
-  paginationDot: {
-    width: 10,
-    height: 10,
-    borderRadius: 5,
-    backgroundColor: 'blue',
-    marginHorizontal: 5,
-  },
-  controls: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingHorizontal: 20,
-    marginTop: 10,
-  },
-  controlText: {
-    fontSize: 16,
-    color: 'blue',
-  },
-});
-// Hello anns I have changed from the github andriod..
-
+    marginVertical: 10
+  }
+})

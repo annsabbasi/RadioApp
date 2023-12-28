@@ -8,10 +8,12 @@ const LiveRadio = () => (
             <View style={[styles.ellipseHome, styles.relative]}>
                 <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                 <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
-                    <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
+                    <Image source={require('../assets/Ellipse3Shade.png')} />
                 </View>
                 <View style={styles.header}>
-                    <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                    <TouchableOpacity style={{ zIndex: 3 }}>
+                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                    </TouchableOpacity>
                     <View style={styles.alignCenter}>
                         <Text style={styles.textHead}>Live Radio</Text>
                     </View>
@@ -115,6 +117,7 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
     },
+    goBack: { width: 35, height: 35 },
     alignCenter: { alignItems: 'center', gap: 5 },
     textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });

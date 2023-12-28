@@ -17,10 +17,12 @@ export default function UserProfile() {
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
-                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
+                        <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        </TouchableOpacity>
                         <Text style={styles.textHead}>Profile</Text>
                         <Text>{''}</Text>
                     </View>
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 20,
         position: 'absolute',
-        top: 0,
+        top: 10,
         width: '100%',
         alignItems: 'center',
         marginTop: 25,
@@ -125,4 +127,5 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '700',
     },
+    goBack: { width: 35, height: 35 },
 });

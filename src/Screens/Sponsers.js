@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar, } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 
 const sponsorRows = [
     [require('../assets/cola.png'), require('../assets/ceat.png')],
@@ -15,10 +15,12 @@ export default function Sponsors() {
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
-                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
+                        <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        </TouchableOpacity>
                         <View style={styles.alignCenter}>
                             <Text style={styles.textHead}>Sponsors</Text>
                             <Text style={styles.textParagraph}>Our Proud Sponsors</Text>
@@ -99,6 +101,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingVertical: 20,
     },
+    goBack: { width: 35, height: 35 },
     alignCenter: { alignItems: 'center', gap: 5 },
     textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });

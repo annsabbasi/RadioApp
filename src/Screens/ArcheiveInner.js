@@ -13,13 +13,14 @@ export default function ArcheiveInner() {
                         style={styles.image} />
                     <View style={{ position: 'absolute', left: -80, width: '10%', top: -10 }}>
                         <Image
-                            source={require('../assets/Ellipse3Shade.png')}
-                            style={styles.goBack} />
+                            source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <Image
-                            source={require('../assets/icons/goBack.png')}
-                            style={styles.goBack} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image
+                                source={require('../assets/icons/goBack.png')}
+                                style={styles.goBack} />
+                        </TouchableOpacity>
                         <View style={styles.alignCenter}>
                             <Text style={styles.textHead}>Ronan Archeives</Text>
                             <Text style={styles.textParagraph}>18 January 2020</Text>
@@ -108,10 +109,9 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 20,
         position: 'absolute',
-        bottom: 90,
+        bottom: 70,
         width: '100%',
         alignItems: 'center',
-        marginTop: 25,
     },
     textHead: {
         fontSize: 30,
@@ -174,6 +174,7 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
     },
+    goBack: { width: 35, height: 35 },
     image: { width: '100%', },
     alignCenter: { alignItems: 'center', gap: 5 },
     textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
 
 const showData = [
     {
@@ -52,10 +52,12 @@ export default function UpComing() {
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
-                        <Image source={require('../assets/Ellipse3Shade.png')} style={styles.goBack} />
+                        <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
+                        </TouchableOpacity>
                         <View style={styles.alignCenter}>
                             <Text style={styles.textHead}>UpComing Shows</Text>
                         </View>
@@ -152,6 +154,7 @@ const styles = StyleSheet.create({
         width: '75%',
         gap: 5,
     },
+    goBack: { width: 35, height: 35 },
     cardsTimeInfoMain: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 10 },
     cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 5 },
     showHeadText: { fontSize: 20, fontWeight: '700' },

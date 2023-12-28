@@ -15,6 +15,7 @@ import Sponsers from './src/Screens/Sponsers';
 import ShowsContact from './src/Screens/ShowsContact';
 import ArcheiveInner from './src/Screens/ArcheiveInner';
 import Shows from './src/Screens/Shows';
+import PasswordInput from './src/Screens/PasswordInput';
 
 export default function App() {
   return (
@@ -32,9 +33,10 @@ export default function App() {
       {/* <LiveRadio /> */}
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
-      <ArcheiveInner />
+      {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
-      {/* <Test /> */}
+      <Test />
+      {/* <PasswordInput /> */}
     </View>
   );
 }

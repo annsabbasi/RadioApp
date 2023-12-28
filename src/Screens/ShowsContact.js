@@ -8,9 +8,13 @@ export default function ShowsContact() {
             <ScrollView>
                 <View style={styles.showContactMain}>
                     <View style={styles.mainLogoItem}>
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={require('../assets/icons/back.png')} style={styles.goBack} />
+                        </TouchableOpacity>
                         <Image
                             source={require('../assets/BKLR.png')}
                             style={styles.mainlogo} />
+                        <Text>{''}</Text>
                     </View>
                     <View style={styles.headText}>
                         <Text style={styles.heading}>Contact Us</Text>
@@ -151,8 +155,9 @@ const styles = StyleSheet.create({
         gap: 10,
         marginBottom: 20,
     },
+    goBack: { width: 35, height: 35 },
     showContactMain: { paddingHorizontal: 30, marginTop: 40 },
-    mainLogoItem: { alignSelf: 'center', paddingVertical: 40, },
+    mainLogoItem: { flexDirection: 'row', alignSelf: 'center', marginVertical: 40, marginBottom: 60, justifyContent: 'space-between', width: '100%', alignItems: 'center' },
     headText: { marginVertical: 10, },
     formContainer: { gap: 40, marginTop: 30 },
     email: { width: 20, height: 20 },

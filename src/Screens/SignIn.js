@@ -70,6 +70,7 @@ const styles = StyleSheet.create({
     mainLogoItem: {
         alignSelf: 'center',
         paddingVertical: 40,
+        marginTop: 20
     },
     headText: {
         marginVertical: 10,

@@ -23,7 +23,9 @@ export default function DjProfile() {
                 <View style={styles.ellipseHome}>
                     <Image source={Ellipse3} style={styles.image} />
                     <View style={styles.header}>
-                        <Image source={goBackIcon} />
+                        <TouchableOpacity style={{ zIndex: 3 }}>
+                            <Image source={goBackIcon} style={styles.goBack} />
+                        </TouchableOpacity>
                         <View style={styles.elipseShadeMain}>
                             <Image
                                 source={Ellipse3Shade} />
@@ -109,7 +111,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         padding: 20,
         position: 'absolute',
-        top: 0,
+        top: 10,
         width: '100%',
         alignItems: 'center',
         marginTop: 25,
@@ -217,6 +219,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 4,
     },
+    goBack: { width: 35, height: 35 },
     musicpng: { alignSelf: 'center' },
     image: { width: '100%', },
     headIcon: { width: 50, height: 50 },
