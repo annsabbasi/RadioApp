@@ -21,7 +21,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
-      {/* <Splash /> */}
+      <Splash />
       {/* <SignUp /> */}
       {/* <SignIn /> */}
       {/* <FPassword /> */}
@@ -35,7 +35,7 @@ export default function App() {
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
-      <Test />
+      {/* <Test /> */}
       {/* <PasswordInput /> */}
     </View>
   );

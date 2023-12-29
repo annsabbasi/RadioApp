@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
 
 import logoImage from '../assets/BKLR.png';
@@ -8,7 +8,43 @@ import lockIcon from '../assets/icons/lock.png';
 import eyeIcon from '../assets/icons/eye.png';
 import loginIcon from '../assets/icons/logIn.png';
 
+const React_Native_SignUp_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/register.php';
+
+
 export default function SignUp() {
+
+    const [email, setEmail] = useState();
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+
+    const handleSignup = async () => {
+        try {
+            if (!email, !username, !password) {
+                console.log('Please fill in the all required fields.');
+                return;
+            }
+            const response = await fetch(React_Native_SignUp_Url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    name: username,
+                    password,
+                }),
+            });
+
+            const responseData = await response.json();
+
+            if (response.ok) {
+                console.log('User SignUp Successfully', responseData);
+            } else {
+                console.log('User SignUp Failed', responseData);
+            }
+        } catch (error) {
+            console.log('Error during the SignUp', error);
+        }
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <View>
@@ -21,9 +57,9 @@ export default function SignUp() {
                 </View>
 
                 <View style={styles.formContainer}>
-                    {renderFormItem('Email', mailIcon, 'example@gmail.com')}
-                    {renderFormItem('Username', userIcon, 'examplename')}
-                    {renderFormItem('Password', lockIcon, '********', true)}
+                    {renderFormItem('Email', mailIcon, 'example@gmail.com', false, setEmail)}
+                    {renderFormItem('Username', userIcon, 'examplename', false, setUsername)}
+                    {renderFormItem('Password', lockIcon, '********', true, setPassword)}
                 </View>
 
                 <View style={styles.checkboxContainer}>
@@ -37,7 +73,7 @@ export default function SignUp() {
                 </View>
 
                 <View style={styles.btnContainer}>
-                    <TouchableOpacity style={styles.btn}>
+                    <TouchableOpacity style={styles.btn} onPress={handleSignup}>
                         <Text>{''}</Text>
                         <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
                         <Image source={loginIcon} style={styles.email} />
@@ -54,7 +90,7 @@ export default function SignUp() {
     );
 };
 
-const renderFormItem = (label, icon, placeholder, isPassword = false) => {
+const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
     return (
         <View style={styles.formItem}>
             <Text style={styles.emailText}>{label}</Text>
@@ -65,6 +101,7 @@ const renderFormItem = (label, icon, placeholder, isPassword = false) => {
                     placeholder={placeholder}
                     secureTextEntry={isPassword}
                     placeholderTextColor="gray"
+                    onChangeText={onChange}
                 />
                 {isPassword && <Image source={eyeIcon} style={styles.email} />}
             </View>

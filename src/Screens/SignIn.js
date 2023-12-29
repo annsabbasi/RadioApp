@@ -8,6 +8,7 @@ import eye from '../assets/icons/eye.png';
 import loginIcon from '../assets/icons/logIn.png';
 
 export default function SignIn() {
+
     return (
         <SafeAreaView style={styles.container}>
             <View>
