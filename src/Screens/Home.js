@@ -22,7 +22,7 @@ import MaleAvatar from '../assets/MaleAvatar.png';
 import FemaleAvatar from '../assets/FemaleAvatar.png';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Test() {
+export default function Home() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const data = [
