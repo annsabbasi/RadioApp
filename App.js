@@ -17,13 +17,14 @@ import ArcheiveInner from './src/Screens/ArcheiveInner';
 import Shows from './src/Screens/Shows';
 import PasswordInput from './src/Screens/PasswordInput';
 import Test2 from './src/Screens/Test2';
+import Test3 from './src/Screens/Test3';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
       {/* <Splash /> */}
-      {/* <SignUp /> */}
+      <SignUp />
       {/* <SignIn /> */}
       {/* <FPassword /> */}
       {/* <Home /> */}
@@ -36,9 +37,10 @@ export default function App() {
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
-      <Test />
+      {/* <Test /> */}
       {/* <Test2 /> */}
       {/* <PasswordInput /> */}
+      {/* <Test3 /> */}
     </View>
   );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
 import logoImage from '../assets/BKLR.png';
 import userIcon from '../assets/icons/user.png';
@@ -10,35 +10,37 @@ import loginIcon from '../assets/icons/logIn.png';
 export default function SignIn() {
 
     return (
-        <SafeAreaView style={styles.container}>
-            <View>
-                <View style={styles.mainLogoItem}>
-                    <Image source={logoImage} style={styles.mainlogo} />
-                </View>
-                <View style={styles.headText}>
-                    <Text style={styles.heading}>Let's Sign You In</Text>
-                    <Text style={styles.paragraph}>Welcome back, you've been missed!</Text>
-                </View>
+        <SafeAreaView>
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={styles.mainLogoItem}>
+                        <Image source={logoImage} style={styles.mainlogo} />
+                    </View>
+                    <View style={styles.headText}>
+                        <Text style={styles.heading}>Let's Sign You In</Text>
+                        <Text style={styles.paragraph}>Welcome back, you've been missed!</Text>
+                    </View>
 
-                <View style={styles.formContainer}>
-                    {renderFormItem('Username or Email', userIcon, 'examplename')}
-                    {renderFormItem('Password', lockIcon, '********', true)}
-                </View>
+                    <View style={styles.formContainer}>
+                        {renderFormItem('Username or Email', userIcon, 'examplename')}
+                        {renderFormItem('Password', lockIcon, '********', true)}
+                    </View>
 
-                <View style={styles.btnContainer}>
-                    <TouchableOpacity style={styles.btn}>
-                        <Text>{''}</Text>
-                        <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
-                        <Image source={loginIcon} style={styles.email} />
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.btnContainer}>
+                        <TouchableOpacity style={styles.btn}>
+                            <Text>{''}</Text>
+                            <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
+                            <Image source={loginIcon} style={styles.email} />
+                        </TouchableOpacity>
+                    </View>
 
-                <View style={styles.haveAccount}>
-                    <Text style={[styles.text, { color: 'gray' }]}>
-                        Don't have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign up</Text>
-                    </Text>
+                    <View style={styles.haveAccount}>
+                        <Text style={[styles.text, { color: 'gray' }]}>
+                            Don't have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign up</Text>
+                        </Text>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -91,7 +93,7 @@ const styles = StyleSheet.create({
         gap: 60,
         marginTop: 30
     },
-    email: { width: 20, height: 20 },
+    email: { width: 20, height: 20, marginBottom: 5 },
     emailText: {
         fontSize: 16,
         color: "gray",

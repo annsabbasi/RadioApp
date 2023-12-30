@@ -8,7 +8,7 @@ import arrowRightIcon from '../assets/icons/arrowright.png';
 export default function FPassword() {
     return (
         <SafeAreaView style={styles.container}>
-            <View>
+            <View style={{ paddingHorizontal: 30 }}>
                 <View style={styles.mainLogoItem}>
                     <Image source={logoImage} style={styles.mainlogo} />
                 </View>
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         flex: 1,
-        paddingHorizontal: 30,
         // marginTop: 20,
     },
     mainLogoItem: {
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
         gap: 60,
         marginTop: 30,
     },
-    email: { width: 20, height: 20 },
+    email: { width: 20, height: 20,marginBottom: 5 },
     emailText: {
         fontSize: 16,
         color: 'gray',

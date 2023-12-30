@@ -470,7 +470,7 @@
 
 
 import React, { useState } from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Animated, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, Dimensions, Animated, TouchableWithoutFeedback, Touchable, TouchableHighlight } from 'react-native';
 
 import imgA from '../assets/imgA.jpg';
 import imgB from '../assets/imgB.jpg';
@@ -537,29 +537,31 @@ export default function Test() {
     setIsSidebarOpen(false)
   }
 
-
   return (
-    <TouchableWithoutFeedback onPress={sidebarClose}>
-      <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
-        <ScrollView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView >
+        {/* <TouchableWithoutFeedback onPress={sidebarClose} style={{ zIndex: 10, backgroundColor: 'green', width: '100%' }}> */}
+        <View>
+          <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
+
           <View style={styles.ellipseHome}>
-            <Image source={EllipseHome} style={styles.image} />
+            <Image source={EllipseHome} style={[styles.image, isSidebarOpen && styles.opacityEffect]} />
             <View style={styles.header}>
               <TouchableOpacity onPress={sidebarOpen}>
                 <Image source={hamburgerIcon} style={[styles.hamburger, styles.Icons]} />
               </TouchableOpacity>
 
               {/* SIDEBAR */}
+
               {isSidebarOpen && <View style={styles.sidebarContainer}>
                 <View style={styles.sidebarHeader}>
                   <Image source={require('../assets/img4.png')} style={styles.sidebarHeaderImg} />
                   <Text style={styles.sidebarHeadText}>Mike Adams</Text>
                 </View>
 
-                <View style={{ gap: 20 }}>
+                <View style={{ gap: 20, }}>
                   {sidebarData.map((e, index) => (
-                    <TouchableOpacity key={index} style={styles.sidebarItems}>
+                    <TouchableOpacity key={index} style={styles.sidebarItems} onPress={sidebarClose}>
                       <Image source={e.icon} style={styles.sidebarContentIcons} />
                       <Text style={styles.sidebarText}>{e.text}</Text>
                     </TouchableOpacity>
@@ -580,27 +582,16 @@ export default function Test() {
               </TouchableOpacity>
             </View>
 
-            {/* <View style={styles.header}>
-              <TouchableOpacity>
-                <Image source={hamburgerIcon} style={[styles.hamburger, styles.Icons]} />
-              </TouchableOpacity>
-
-              <Text style={styles.centeredText}>Home</Text>
-              <TouchableOpacity>
-                <Image source={powerIcon} style={[styles.power, styles.Icons]} />
-              </TouchableOpacity>
-            </View> */}
-
-
             <View style={styles.centeredContainer}>
               <Image source={vectorIcon} style={styles.power} />
             </View>
+
             <View style={styles.ellipseVol}>
               <Image source={ellipse2Icon} />
               <Text style={styles.ellipseVal}>103.5</Text>
             </View>
 
-            <View style={styles.homeBtns}>
+            <View style={[styles.homeBtns, isSidebarOpen && styles.opacityEffect]}>
               <TouchableOpacity>
                 <Image source={previousIcon} style={styles.Icons} />
               </TouchableOpacity>
@@ -613,42 +604,7 @@ export default function Test() {
             </View>
           </View>
 
-          {/* <View style={styles.ellipseHome}>
-          <View style={styles.header}>
-            <TouchableOpacity onPress={toggleSidebar}>
-              <Image source={hamburgerIcon} style={[styles.hamburger, styles.Icons]} />
-            </TouchableOpacity>
-
-            <Animated.View style={[styles.sidebarContainer, { left: slideAnimation }]}>
-              <View style={styles.sidebarHeader}>
-                <Image source={require('../assets/img4.png')} style={styles.sidebarHeaderImg} />
-                <Text style={styles.sidebarHeadText}>Mike Adams</Text>
-              </View>
-
-              <View style={{ gap: 20 }}>
-                {sidebarData.map((e, index) => (
-                  <TouchableOpacity key={index} style={styles.sidebarItems}>
-                    <Image source={e.icon} style={styles.sidebarContentIcons} />
-                    <Text style={styles.sidebarText}>{e.text}</Text>
-                  </TouchableOpacity>
-                ))}
-
-                <View style={styles.sponserContent}>
-                  <Image source={require('../assets/icons/dollar.png')} style={styles.Icons} />
-                  <Text style={styles.sponserText}>Sponsor Your favourite DJs and shows.</Text>
-                </View>
-              </View>
-            </Animated.View>
-
-            <Text style={styles.centeredText}>Home</Text>
-            <TouchableOpacity>
-              <Image source={powerIcon} style={[styles.power, styles.Icons]} />
-            </TouchableOpacity>
-          </View>
-
-        </View> */}
-
-          <TouchableOpacity style={styles.fmTag}>
+          <TouchableOpacity style={[styles.fmTag, isSidebarOpen && styles.opacityEffect]}>
             <Text style={styles.fmText}>Listen Our Second FM</Text>
           </TouchableOpacity>
 
@@ -665,6 +621,7 @@ export default function Test() {
               onScroll={handleScroll}
               scrollEventThrottle={16}
               snapToInterval={itemWidth + gap}
+              style={[isSidebarOpen && styles.opacityEffect]}
               contentContainerStyle={{ flexDirection: 'row', gap }}>
               {data.map((item, index) => (
                 <View key={index} style={[styles.item, { width: itemWidth }]}>
@@ -675,7 +632,8 @@ export default function Test() {
             </ScrollView>
           </View>
 
-          <View style={styles.djContainer}>
+
+          <View style={[styles.djContainer, isSidebarOpen && styles.opacityEffect]}>
             <View style={styles.djHead}>
               <Image source={guitar} style={styles.Icons} />
               <Text style={styles.textDj}>DJs</Text>
@@ -690,9 +648,9 @@ export default function Test() {
             </View>
           </View>
 
-        </ScrollView>
-      </SafeAreaView>
-    </TouchableWithoutFeedback>
+        </View>
+      </ScrollView>
+    </SafeAreaView >
   );
 };
 
@@ -821,15 +779,14 @@ const styles = StyleSheet.create({
     top: -25,
     gap: 50,
     left: 0,
-    width: '80%',
-    backgroundColor: 'whitesmoke',
+    width: '95%',
+    backgroundColor: 'white',
     // flex: 1,
-    zIndex: 5,
+    zIndex: 15,
     paddingVertical: 30,
     paddingTop: 40,
     height: '5000%'
   },
-  sidebarHeaderImg: { width: 35, height: 35, borderRadius: 100 },
   sidebarHeader: {
     paddingVertical: 15,
     paddingHorizontal: 20,
@@ -844,6 +801,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700'
   },
+  sidebarHeaderImg: { width: 35, height: 35, borderRadius: 100 },
+  opacityEffect: { opacity: 0.4 },
   sidebarItems: { flexDirection: 'row', gap: 20, alignItems: 'center', paddingHorizontal: 25, paddingVertical: 15, },
   sidebarContentIcons: { width: 20, height: 20 },
   sidebarText: { fontSize: 18, fontWeight: '600' },

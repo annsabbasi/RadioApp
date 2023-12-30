@@ -16,12 +16,17 @@ export default function SignUp() {
     const [email, setEmail] = useState();
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [check, setCheck] = useState(false);
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const checkTrue = () => { setCheck(!check) };
 
     const handleSignup = async () => {
         try {
             if (!email, !username, !password) {
                 console.log('Please fill in the all required fields.');
-                return;
+                // return;
             }
             const response = await fetch(React_Native_SignUp_Url, {
                 method: 'POST',
@@ -46,46 +51,48 @@ export default function SignUp() {
     };
 
     return (
-        <SafeAreaView style={styles.container}>
-            <View>
-                <View style={styles.mainLogoItem}>
-                    <Image source={logoImage} style={styles.mainlogo} />
-                </View>
-                <View style={styles.headText}>
-                    <Text style={styles.heading}>Getting Started</Text>
-                    <Text style={styles.paragraph}>Create an account to continue!</Text>
-                </View>
-
-                <View style={styles.formContainer}>
-                    {renderFormItem('Email', mailIcon, 'example@gmail.com', false, setEmail)}
-                    {renderFormItem('Username', userIcon, 'examplename', false, setUsername)}
-                    {renderFormItem('Password', lockIcon, '********', true, setPassword)}
-                </View>
-
-                <View style={styles.checkboxContainer}>
-                    <View style={styles.checkbox}>
-                        <Text>&#10003;</Text>
+        <SafeAreaView>
+            <ScrollView>
+                <View style={styles.container}>
+                    <View style={styles.mainLogoItem}>
+                        <Image source={logoImage} style={styles.mainlogo} />
                     </View>
-                    <Text style={styles.text}>
-                        By creating an account, you agree to our {'\n'}
-                        <Text style={styles.textBold}>Term & Conditions</Text>
-                    </Text>
-                </View>
+                    <View style={styles.headText}>
+                        <Text style={styles.heading}>Getting Started</Text>
+                        <Text style={styles.paragraph}>Create an account to continue!</Text>
+                    </View>
 
-                <View style={styles.btnContainer}>
-                    <TouchableOpacity style={styles.btn} onPress={handleSignup}>
-                        <Text>{''}</Text>
-                        <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
-                        <Image source={loginIcon} style={styles.email} />
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.formContainer}>
+                        {renderFormItem('Email', mailIcon, 'example@gmail.com', false, setEmail)}
+                        {renderFormItem('Username', userIcon, 'examplename', false, setUsername)}
+                        {renderFormItem('Password', lockIcon, '********', true, setPassword)}
+                    </View>
 
-                <View style={styles.haveAccount}>
-                    <Text style={[styles.text, { color: 'gray' }]}>
-                        Already have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign in</Text>
-                    </Text>
+                    <View style={styles.checkboxContainer}>
+                        <View style={styles.checkbox}>
+                            {check && <Text>&#10003;</Text>}
+                        </View>
+                        <Text style={styles.text} onPress={checkTrue}>
+                            By creating an account, you agree to our {'\n'}
+                            <Text style={styles.textBold}>Term & Conditions</Text>
+                        </Text>
+                    </View>
+
+                    <View style={styles.btnContainer}>
+                        <TouchableOpacity style={styles.btn} onPress={handleSignup}>
+                            <Text>{''}</Text>
+                            <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
+                            <Image source={loginIcon} style={styles.email} />
+                        </TouchableOpacity>
+                    </View>
+
+                    <View style={styles.haveAccount}>
+                        <Text style={[styles.text, { color: 'gray' }]}>
+                            Already have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign in</Text>
+                        </Text>
+                    </View>
                 </View>
-            </View>
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -101,8 +108,7 @@ const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) 
                     placeholder={placeholder}
                     secureTextEntry={isPassword}
                     placeholderTextColor="gray"
-                    onChangeText={onChange}
-                />
+                    onChangeText={onChange} />
                 {isPassword && <Image source={eyeIcon} style={styles.email} />}
             </View>
         </View>
@@ -138,7 +144,7 @@ const styles = StyleSheet.create({
     formContainer: {
         gap: 30
     },
-    email: { width: 20, height: 20 },
+    email: { width: 20, height: 20, marginBottom: 5 },
     emailText: {
         fontSize: 16,
         color: "gray",
@@ -163,16 +169,16 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 15,
         marginVertical: 25,
-        marginTop: 50
+        marginTop: 50,
+        alignItems: 'center'
     },
     checkbox: {
+        width: 25,
+        height: 25,
         borderWidth: 1,
-        borderColor: 'black',
-        alignSelf: 'flex-start',
-        padding: 2,
         borderRadius: 5,
-        paddingHorizontal: 5,
-        alignSelf: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     textBold: {
         fontWeight: '700',
