@@ -11,23 +11,44 @@ import loginIcon from '../assets/icons/logIn.png';
 const React_Native_SignUp_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/register.php';
 
 
-export default function SignUp() {
+export default function SignUp({ navigation }) {
 
     const [email, setEmail] = useState();
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [agreedTerms, setAgreedTerms] = useState(false);
     const [check, setCheck] = useState(false);
+    const [attemptedSignup, setAttemptedSignup] = useState(false);
+    const [messageShown, setMessageShown] = useState(false);
+    const [fields, setFields] = useState(false);
+    const [fieldsShown, setFieldsShown] = useState(false);
 
-    const [showPassword, setShowPassword] = useState(false);
 
     const checkTrue = () => { setCheck(!check) };
 
     const handleSignup = async () => {
         try {
-            if (!email, !username, !password) {
+            setFields(true)
+            setAttemptedSignup(true);
+
+            if (!email || !username || !password) {
                 console.log('Please fill in the all required fields.');
+                setFieldsShown(true)
+                setTimeout(() => {
+                    setFieldsShown(false)
+                }, 1000)
                 return;
             }
+
+            if (!agreedTerms) {
+                console.log('Please Agreed to our terms and conditions');
+                setMessageShown(true)
+                setTimeout(() => {
+                    setMessageShown(false)
+                }, 1000)
+                return;
+            }
+
             const response = await fetch(React_Native_SignUp_Url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -41,10 +62,13 @@ export default function SignUp() {
             const responseData = await response.json();
 
             if (response.ok) {
+                navigation.navigate('SignIn')
                 console.log('User SignUp Successfully', responseData);
             } else {
                 console.log('User SignUp Failed', responseData);
             }
+
+
         } catch (error) {
             console.log('Error during the SignUp', error);
         }
@@ -68,14 +92,19 @@ export default function SignUp() {
                         {renderFormItem('Password', lockIcon, '********', true, setPassword)}
                     </View>
 
-                    <View style={styles.checkboxContainer}>
-                        <View style={styles.checkbox}>
-                            {check && <Text>&#10003;</Text>}
+                    <View style={styles.checkboxMain}>
+                        <View style={styles.checkboxContainer}>
+                            <View style={styles.checkbox} onTouchEnd={checkTrue}>
+                                {check && <Text>&#10003;</Text>}
+                            </View>
+                            <Text style={styles.text} onPress={checkTrue}>
+                                By creating an account, you agree to our {'\n'}
+                                <Text style={styles.textBold}>Term & Conditions</Text>
+                            </Text>
                         </View>
-                        <Text style={styles.text} onPress={checkTrue}>
-                            By creating an account, you agree to our {'\n'}
-                            <Text style={styles.textBold}>Term & Conditions</Text>
-                        </Text>
+                        {attemptedSignup && !check && messageShown && <Text style={styles.errorText}>Please check the terms and conditions.</Text>}
+
+                        {fields && !email && !username && !password && fieldsShown && <Text style={styles.errorText}>Please fill in the all required fields.</Text>}
                     </View>
 
                     <View style={styles.btnContainer}>
@@ -88,7 +117,7 @@ export default function SignUp() {
 
                     <View style={styles.haveAccount}>
                         <Text style={[styles.text, { color: 'gray' }]}>
-                            Already have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign in</Text>
+                            Already have an account? <Text style={[styles.textBold, { color: 'black' }]} onPress={() => navigation.navigate('SignIn')}>Sign in</Text>
                         </Text>
                     </View>
                 </View>
@@ -98,6 +127,14 @@ export default function SignUp() {
 };
 
 const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
+
+    const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <View style={styles.formItem}>
             <Text style={styles.emailText}>{label}</Text>
@@ -106,10 +143,17 @@ const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) 
                 <TextInput
                     style={styles.inputEmail}
                     placeholder={placeholder}
-                    secureTextEntry={isPassword}
+                    // textContentType='password'
+                    secureTextEntry={isPassword && !showPassword}
                     placeholderTextColor="gray"
                     onChangeText={onChange} />
-                {isPassword && <Image source={eyeIcon} style={styles.email} />}
+                {/* {isPassword && <Image source={eyeIcon} style={styles.email} />} */}
+                {isPassword &&
+                    <TouchableOpacity onPress={togglePasswordVisibility}>
+                        <Image source={eyeIcon} style={styles.email} />
+                    </TouchableOpacity>
+                }
+
             </View>
         </View>
     );
@@ -165,11 +209,16 @@ const styles = StyleSheet.create({
     inputEmail: {
         flex: 1
     },
+    checkboxMain: {
+        // marginVertical: 25,
+        marginTop: 40,
+        paddingVertical: 20,
+        gap: 15,
+        height: 100,
+    },
     checkboxContainer: {
         flexDirection: 'row',
         gap: 15,
-        marginVertical: 25,
-        marginTop: 50,
         alignItems: 'center'
     },
     checkbox: {
@@ -179,6 +228,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    errorText: {
+        // color: '#97AE26',
+        color: 'red',
+        fontSize: 14,
     },
     textBold: {
         fontWeight: '700',

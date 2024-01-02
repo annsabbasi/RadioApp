@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, TouchableOpacity, ScrollView } from 'react-native';
 
 import logoImage from '../assets/BKLR.png';
@@ -7,7 +7,31 @@ import lockIcon from '../assets/icons/lock.png';
 import eye from '../assets/icons/eye.png';
 import loginIcon from '../assets/icons/logIn.png';
 
-export default function SignIn() {
+export default function SignIn({ navigation }) {
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
+
+    const React_Native_SignIn_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/login.php'
+
+    const handleSignIn = async () => {
+        try {
+            const response = await fetch(React_Native_SignIn_Url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(username, password)
+            });
+            const responseData = await response.json();
+            if (response.ok) {
+                console.log('Login Successfully', responseData);
+            } else {
+                console.log('LogIn Failed', responseData);
+            }
+
+        } catch (error) {
+            console.log('Error in the LogIn', error)
+        }
+    }
+
 
     return (
         <SafeAreaView>
@@ -22,12 +46,12 @@ export default function SignIn() {
                     </View>
 
                     <View style={styles.formContainer}>
-                        {renderFormItem('Username or Email', userIcon, 'examplename')}
-                        {renderFormItem('Password', lockIcon, '********', true)}
+                        {renderFormItem('Username or Email', userIcon, 'examplename', false, username)}
+                        {renderFormItem('Password', lockIcon, '********', true, password)}
                     </View>
 
                     <View style={styles.btnContainer}>
-                        <TouchableOpacity style={styles.btn}>
+                        <TouchableOpacity style={styles.btn} onPress={handleSignIn}>
                             <Text>{''}</Text>
                             <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
                             <Image source={loginIcon} style={styles.email} />
@@ -36,7 +60,7 @@ export default function SignIn() {
 
                     <View style={styles.haveAccount}>
                         <Text style={[styles.text, { color: 'gray' }]}>
-                            Don't have an account? <Text style={[styles.textBold, { color: 'black' }]}>Sign up</Text>
+                            Don't have an account? <Text style={[styles.textBold, { color: 'black' }]} onPress={() => navigation.navigate('SignUp')}>Sign up</Text>
                         </Text>
                     </View>
                 </View>
@@ -45,7 +69,7 @@ export default function SignIn() {
     );
 };
 
-const renderFormItem = (label, icon, placeholder, isPassword = false) => {
+const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
     return (
         <View style={styles.formItem}>
             <Text style={styles.emailText}>{label}</Text>
@@ -56,6 +80,7 @@ const renderFormItem = (label, icon, placeholder, isPassword = false) => {
                     placeholder={placeholder}
                     secureTextEntry={isPassword}
                     placeholderTextColor="gray"
+                    onChangeText={onChange}
                 />
                 {isPassword && <Image source={eye} style={styles.email} />}
             </View>

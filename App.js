@@ -8,16 +8,17 @@ import Home from './src/Screens/Home';
 import Splash from './src/Screens/Splash';
 import DjProfile from './src/Screens/DjProfile';
 import Archives from './src/Screens/Archives';
+import Shows from './src/Screens/Shows';
 import Profile from './src/Screens/Profile';
 import UpComing from './src/Screens/Upcoming';
 import LiveRadio from './src/Screens/LiveRadio';
 import Sponsers from './src/Screens/Sponsers';
 import ShowsContact from './src/Screens/ShowsContact';
 import ArcheiveInner from './src/Screens/ArcheiveInner';
-import Shows from './src/Screens/Shows';
 import PasswordInput from './src/Screens/PasswordInput';
 import Test2 from './src/Screens/Test2';
 import Test3 from './src/Screens/Test3';
+import UserLogins from './src/Navigation/UserLogins';
 
 export default function App() {
   return (
@@ -36,11 +37,12 @@ export default function App() {
       {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
-      <Shows />
+      {/* <Shows /> */}
       {/* <Test /> */}
       {/* <Test2 /> */}
       {/* <PasswordInput /> */}
       {/* <Test3 /> */}
+      <UserLogins />
     </View>
   );
 }

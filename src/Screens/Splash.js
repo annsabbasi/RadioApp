@@ -1,14 +1,32 @@
-import React from 'react';
-import { View, Image, StyleSheet, StatusBar } from 'react-native';
+import React, { useEffect, useRef } from 'react';
+import { View, Image, StyleSheet, StatusBar, Animated } from 'react-native';
 
-const Splash = () => {
+const Splash = ({ navigation }) => {
+    const opacityValue = useRef(new Animated.Value(0)).current;
+    useEffect(() => {
+        const fadeIn = Animated.timing(opacityValue, {
+            toValue: 1,
+            duration: 1000,
+            useNativeDriver: false
+        });
+        const fadeOut = Animated.timing(opacityValue, {
+            toValue: 0,
+            duration: 2000,
+            useNativeDriver: false
+        });
+
+        Animated.sequence([fadeIn, Animated.delay(2000), fadeOut]).start(() => {
+            navigation.navigate('SignUp');
+        }, [navigation, opacityValue])
+
+    });
     return (
         <View style={styles.container}>
             {/* <StatusBar backgroundColor="#ffffff" barStyle="dark-content" /> */}
             <StatusBar backgroundColor="#97AE26" barStyle="dark-content" />
-            <Image
+            <Animated.Image
                 source={require('../assets/Splash.png')}
-                style={styles.image}
+                style={[styles.image, { opacity: opacityValue }]}
                 resizeMode="cover"
             />
         </View>

@@ -15,8 +15,8 @@ const Test3 = () => {
                 style={styles.input}
                 placeholder="Password"
                 secureTextEntry={!showPassword}
-                value={password}
-                onChangeText={(text) => setPassword(text)}
+            // value={password}
+            // onChangeText={(text) => setPassword(text)}
             />
             <TouchableOpacity onPress={togglePasswordVisibility} style={styles.toggleButton}>
                 {/* You can use an icon or text to indicate show/hide */}
