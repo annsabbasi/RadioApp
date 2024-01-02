@@ -26,7 +26,7 @@ export default function SignUp() {
         try {
             if (!email, !username, !password) {
                 console.log('Please fill in the all required fields.');
-                // return;
+                return;
             }
             const response = await fetch(React_Native_SignUp_Url, {
                 method: 'POST',

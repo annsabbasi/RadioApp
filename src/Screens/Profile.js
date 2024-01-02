@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 1,
+        shadowOpacity: 0.7,
         marginTop: 90
     },
     infoCardItem: {
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
     primaryIcon: { width: 20, height: 20 },
     heading: {
         fontSize: 14,
-        fontWeight: '600',
     },
     paragraph: {
         fontSize: 16,
