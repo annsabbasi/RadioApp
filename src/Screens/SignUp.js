@@ -24,7 +24,7 @@ export default function SignUp({ navigation }) {
     const [fieldsShown, setFieldsShown] = useState(false);
 
 
-    const checkTrue = () => { setCheck(!check) };
+    const checkTrue = () => { setCheck(!check); setAgreedTerms(!agreedTerms); };
 
     const handleSignup = async () => {
         try {
@@ -36,7 +36,7 @@ export default function SignUp({ navigation }) {
                 setFieldsShown(true)
                 setTimeout(() => {
                     setFieldsShown(false)
-                }, 1000)
+                }, 3000)
                 return;
             }
 
@@ -45,7 +45,7 @@ export default function SignUp({ navigation }) {
                 setMessageShown(true)
                 setTimeout(() => {
                     setMessageShown(false)
-                }, 1000)
+                }, 3000)
                 return;
             }
 
@@ -94,7 +94,7 @@ export default function SignUp({ navigation }) {
 
                     <View style={styles.checkboxMain}>
                         <View style={styles.checkboxContainer}>
-                            <View style={styles.checkbox} onTouchEnd={checkTrue}>
+                            <View style={styles.checkbox} onTouchEnd={() => setAgreedTerms(!agreedTerms)}>
                                 {check && <Text>&#10003;</Text>}
                             </View>
                             <Text style={styles.text} onPress={checkTrue}>
@@ -128,7 +128,7 @@ export default function SignUp({ navigation }) {
 
 const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
 
-    const [password, setPassword] = useState('');
+    // const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {

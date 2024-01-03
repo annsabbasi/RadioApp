@@ -38,11 +38,11 @@ export default function App() {
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
-      {/* <Test /> */}
+      <Test />
       {/* <Test2 /> */}
       {/* <PasswordInput /> */}
       {/* <Test3 /> */}
-      <UserLogins />
+      {/* <UserLogins /> */}
     </View>
   );
 }

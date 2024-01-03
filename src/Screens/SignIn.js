@@ -10,11 +10,27 @@ import loginIcon from '../assets/icons/logIn.png';
 export default function SignIn({ navigation }) {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
+    const [requiredFields, setRequiredFields] = useState(false);
+    const [fieldShown, setFieldShown] = useState(false);
+
 
     const React_Native_SignIn_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/login.php'
 
     const handleSignIn = async () => {
+
         try {
+            setRequiredFields(true)
+
+            if (!username || !password) {
+                console.log('Please fill in all the fields before SignIn.');
+                setFieldShown(true)
+                setTimeout(() => {
+                    setFieldShown(false)
+                }, 3000)
+                return;
+            }
+
+
             const response = await fetch(React_Native_SignIn_Url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -23,6 +39,7 @@ export default function SignIn({ navigation }) {
             const responseData = await response.json();
             if (response.ok) {
                 console.log('Login Successfully', responseData);
+                navigation.navigate('Home')
             } else {
                 console.log('LogIn Failed', responseData);
             }
@@ -46,14 +63,19 @@ export default function SignIn({ navigation }) {
                     </View>
 
                     <View style={styles.formContainer}>
-                        {renderFormItem('Username or Email', userIcon, 'examplename', false, username)}
-                        {renderFormItem('Password', lockIcon, '********', true, password)}
+                        {renderFormItem('Username or Email', userIcon, 'examplename', false, setUsername)}
+                        {renderFormItem('Password', lockIcon, '********', true, setPassword)}
+                    </View>
+                    <View style={{ height: 20, marginTop: 20 }}>
+                        {requiredFields && !username && !password && fieldShown &&
+                            <Text style={styles.errorText}>Please fill in all the required fields before SignIn.</Text>
+                        }
                     </View>
 
                     <View style={styles.btnContainer}>
                         <TouchableOpacity style={styles.btn} onPress={handleSignIn}>
                             <Text>{''}</Text>
-                            <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
+                            <Text style={[styles.signupText, styles.textBold]}>SIGN IN</Text>
                             <Image source={loginIcon} style={styles.email} />
                         </TouchableOpacity>
                     </View>
@@ -70,6 +92,12 @@ export default function SignIn({ navigation }) {
 };
 
 const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
+    const [passwordShown, setPasswordShown] = useState(false);
+
+    const handlePassword = () => {
+        setPasswordShown(!passwordShown);
+    }
+
     return (
         <View style={styles.formItem}>
             <Text style={styles.emailText}>{label}</Text>
@@ -78,11 +106,13 @@ const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) 
                 <TextInput
                     style={styles.inputEmail}
                     placeholder={placeholder}
-                    secureTextEntry={isPassword}
+                    secureTextEntry={isPassword && !passwordShown}
                     placeholderTextColor="gray"
                     onChangeText={onChange}
                 />
-                {isPassword && <Image source={eye} style={styles.email} />}
+                {isPassword && <TouchableOpacity onPress={handlePassword}>
+                    <Image source={eye} style={styles.email} />
+                </TouchableOpacity>}
             </View>
         </View>
     );
@@ -116,7 +146,12 @@ const styles = StyleSheet.create({
     },
     formContainer: {
         gap: 60,
-        marginTop: 30
+        marginTop: 30,
+    },
+    errorText: {
+        // color: '#97AE26',
+        color: 'red',
+        fontSize: 14,
     },
     email: { width: 20, height: 20, marginBottom: 5 },
     emailText: {
