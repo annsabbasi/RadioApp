@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TouchableOpacity, } from 'react-native';
-
 import { LinearGradient } from 'expo-linear-gradient';
 
 const data = [
@@ -12,22 +11,26 @@ const data = [
     { img: require('../assets/imgF.jpg'), textHead: 'James waraich', textParagraph: 'Type your message here....' },
 ]
 
-export default function Test({navigation}) {
+export default function Shows({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
+
                 <View style={styles.ellipseHome}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
+
                     <View style={styles.header}>
-                        <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Text style={styles.textHead}>Show</Text>
                         <Text>{''}</Text>
                     </View>
+
                     <View style={styles.profileData}>
                         <Image source={require('../assets/Rectangle82.png')} style={styles.profileImg} />
                     </View>
+
                     <TouchableOpacity style={styles.camera}>
                         <Image source={require('../assets/icons/live.png')} style={styles.live} />
                     </TouchableOpacity>
@@ -53,8 +56,7 @@ export default function Test({navigation}) {
                     <LinearGradient
                         colors={['#A3FA5E', '#0DA15A']}
                         start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 0 }}
-                    >
+                        end={{ x: 1, y: 0 }} >
                         <View style={styles.chatHead}>
                             <Image source={require('../assets/icons/chatIcn.png')} style={styles.musicpng} />
                             <Text style={styles.chatTag}>Chat here...</Text>
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        // marginTop: 20
+        backgroundColor: 'white'
     },
 
     ellipseHome: {
@@ -152,7 +154,6 @@ const styles = StyleSheet.create({
         right: '29%'
     },
     chatContainer: {
-        // backgroundColor: 'green',
         width: '95%',
         alignSelf: 'center',
         marginVertical: 30,

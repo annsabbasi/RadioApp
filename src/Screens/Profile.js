@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const infoData = [
     { icon: require('../assets/icons/user.png'), heading: 'Name', value: 'Mike Husky', editable: true },
@@ -9,18 +9,20 @@ const infoData = [
     { icon: require('../assets/icons/phone.png'), heading: 'Phone', value: '+1234567890' },
 ];
 
-export default function UserProfile({navigation}) {
+export default function Profile({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
+
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
+
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
+
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Text style={styles.textHead}>Profile</Text>
@@ -30,6 +32,7 @@ export default function UserProfile({navigation}) {
                     <View style={[styles.absolute, { bottom: '-15%', left: '30%' }]}>
                         <Image source={require('../assets/profile.png')} style={styles.profileImg} />
                     </View>
+
                     <TouchableOpacity style={[styles.absolute, { bottom: '25%', left: '26%' }]}>
                         <Image source={require('../assets/icons/camera.png')} style={styles.cameraLogo} />
                     </TouchableOpacity>
@@ -38,6 +41,7 @@ export default function UserProfile({navigation}) {
                 <View style={styles.infoCardContainer}>
                     {infoData.map((info, index) => (
                         <View key={index} style={styles.infoCardItem}>
+
                             <View style={styles.profileInfo}>
                                 <Image source={info.icon} style={styles.primaryIcon} />
                                 <View>
@@ -45,6 +49,7 @@ export default function UserProfile({navigation}) {
                                     <Text style={styles.paragraph}>{info.value}</Text>
                                 </View>
                             </View>
+
                             {info.editable && (
                                 <TouchableOpacity>
                                     <Image source={require('../assets/icons/edit.png')} style={styles.primaryIcon} />
@@ -53,6 +58,7 @@ export default function UserProfile({navigation}) {
                         </View>
                     ))}
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -118,7 +124,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         gap: 10,
     },
-    primaryIcon: { width: 20, height: 20 },
     heading: {
         fontSize: 14,
     },
@@ -126,5 +131,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '700',
     },
+    primaryIcon: { width: 20, height: 20 },
     goBack: { width: 35, height: 35 },
 });

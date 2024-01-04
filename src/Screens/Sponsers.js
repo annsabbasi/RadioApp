@@ -7,18 +7,19 @@ const sponsorRows = [
     [require('../assets/bajaj.png')],
 ];
 
-export default function Sponsors({navigation}) {
+export default function Sponsors({ navigation }) {
     return (
         <SafeAreaView>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
+            {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
+
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.alignCenter}>
@@ -28,6 +29,7 @@ export default function Sponsors({navigation}) {
                         <Text>{''}</Text>
                     </View>
                 </View>
+
                 <View style={styles.cardsContainer}>
                     {sponsorRows.map((row, index) => (
                         <View key={index} style={[styles.row, index === sponsorRows.length - 1 && styles.rowLast]}>
@@ -37,6 +39,7 @@ export default function Sponsors({navigation}) {
                         </View>
                     ))}
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -101,7 +104,14 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         paddingVertical: 20,
     },
+    textParagraph: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: '700'
+    },
+    alignCenter: {
+        alignItems: 'center',
+        gap: 5
+    },
     goBack: { width: 35, height: 35 },
-    alignCenter: { alignItems: 'center', gap: 5 },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });

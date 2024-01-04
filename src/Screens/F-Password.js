@@ -10,9 +10,11 @@ export default function FPassword() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={{ paddingHorizontal: 30 }}>
+
                 <View style={styles.mainLogoItem}>
                     <Image source={logoImage} style={styles.mainlogo} />
                 </View>
+
                 <View style={styles.headText}>
                     <Text style={styles.heading}>Password Recovery</Text>
                     <Text style={styles.paragraph}>Enter your Phone number to recover your password</Text>
@@ -22,6 +24,7 @@ export default function FPassword() {
                     {renderFormItem('Email for recovery')}
                     {renderContinueButton()}
                 </View>
+
             </View>
         </SafeAreaView>
     );
@@ -47,8 +50,7 @@ const renderContinueButton = () => {
                     colors={['#F0D042', '#77A21D']}
                     start={{ x: 0.5, y: 0 }}
                     end={{ x: 0.5, y: 1 }}
-                    style={styles.btn}
-                >
+                    style={styles.btn} >
                     <Text>{''}</Text>
                     <Text style={[styles.signupText, styles.textBold]}>CONTINUE</Text>
                     <Image source={arrowRightIcon} style={styles.email} />
@@ -62,7 +64,6 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         flex: 1,
-        // marginTop: 20,
     },
     mainLogoItem: {
         alignSelf: 'center',
@@ -87,7 +88,11 @@ const styles = StyleSheet.create({
         gap: 60,
         marginTop: 30,
     },
-    email: { width: 20, height: 20, marginBottom: 5 },
+    email: {
+        width: 20,
+        height: 20,
+        marginBottom: 5
+    },
     emailText: {
         fontSize: 16,
         color: 'gray',
@@ -127,7 +132,6 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        // backgroundColor: 'rgba(119, 162, 29, 1)',
     },
     signupText: {
         color: 'white',

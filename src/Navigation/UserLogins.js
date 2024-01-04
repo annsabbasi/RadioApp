@@ -28,16 +28,15 @@ export default function UserLogins() {
                 <Stack.Screen component={SignIn} name="SignIn" />
                 {/* <Stack.Screen component={HomeNavigations} name="HomeNavigations" /> */}
                 <Stack.Screen component={Home} name="Home" />
-
+                <Stack.Screen component={Profile} name='Profile' />
                 <Stack.Screen component={LiveRadio} name='LiveRadio' />
                 <Stack.Screen component={UpComing} name='UpComing' />
                 <Stack.Screen component={DjProfile} name='DjProfile' />
                 <Stack.Screen component={Archives} name='Archeives' />
-                <Stack.Screen component={Sponsers} name='Sponsers' />
-                <Stack.Screen component={Shows} name='Shows' />
-                <Stack.Screen component={Profile} name='Profile' />
                 <Stack.Screen component={ShowsContact} name='ShowsContact' />
+                <Stack.Screen component={Sponsers} name='Sponsers' />
                 <Stack.Screen component={ArcheiveInner} name='ArcheiveInner' />
+                <Stack.Screen component={Shows} name='Shows' />
             </Stack.Navigator>
         </NavigationContainer>
     )

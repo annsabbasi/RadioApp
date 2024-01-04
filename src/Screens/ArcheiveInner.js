@@ -1,12 +1,12 @@
-import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity, StatusBar } from 'react-native'
+import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Slider from '@react-native-community/slider';
 
-export default function ArcheiveInner({navigation}) {
+export default function ArcheiveInner({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
+
                 <View style={styles.ellipseHome}>
                     <Image
                         source={require('../assets/Ellipse3.png')}
@@ -16,7 +16,7 @@ export default function ArcheiveInner({navigation}) {
                             source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image
                                 source={require('../assets/icons/goBack.png')}
                                 style={styles.goBack} />
@@ -61,8 +61,7 @@ export default function ArcheiveInner({navigation}) {
                                 minimumTrackTintColor="black"
                                 maximumTrackTintColor="black"
                                 thumbTintColor='black'
-                                value={50} />
-
+                                value={20} />
                         </View>
 
                         <View style={styles.controles}>
@@ -82,8 +81,10 @@ export default function ArcheiveInner({navigation}) {
                                     style={styles.resume} />
                             </TouchableOpacity>
                         </View>
+
                     </View>
                 </View>
+
                 <View>
                     <Image
                         source={require('../assets/footer.png')} />
@@ -97,7 +98,6 @@ export default function ArcheiveInner({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: 20
     },
     ellipseHome: {
         position: 'relative',
@@ -174,8 +174,15 @@ const styles = StyleSheet.create({
         width: 40,
         height: 40,
     },
+    textParagraph: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: '700'
+    },
+    alignCenter: {
+        alignItems: 'center',
+        gap: 5
+    },
     goBack: { width: 35, height: 35 },
     image: { width: '100%', },
-    alignCenter: { alignItems: 'center', gap: 5 },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });

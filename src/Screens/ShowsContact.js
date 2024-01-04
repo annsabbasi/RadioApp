@@ -1,15 +1,15 @@
-import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
+import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ShowsContact({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
+
                 <View style={styles.showContactMain}>
                     <View style={styles.mainLogoItem}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/back.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Image
@@ -17,6 +17,7 @@ export default function ShowsContact({ navigation }) {
                             style={styles.mainlogo} />
                         <Text>{''}</Text>
                     </View>
+
                     <View style={styles.headText}>
                         <Text style={styles.heading}>Contact Us</Text>
                         <Text style={styles.paragraph}>Have any question, let us know.</Text>
@@ -78,6 +79,7 @@ export default function ShowsContact({ navigation }) {
                     </View>
 
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     )
@@ -86,7 +88,6 @@ export default function ShowsContact({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: 20
     },
     heading: {
         fontWeight: '800',
@@ -132,7 +133,6 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        // paddingVertical: 20
     },
     btn: {
         flexDirection: 'row',
@@ -143,7 +143,6 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        // backgroundColor: 'rgba(119, 162, 29, 1)'
     },
     haveAccount: {
         marginVertical: 60,
@@ -164,12 +163,36 @@ const styles = StyleSheet.create({
         gap: 10,
         marginBottom: 20,
     },
-    goBack: { width: 35, height: 35 },
-    showContactMain: { paddingHorizontal: 10, marginTop: 40 },
-    mainLogoItem: { flexDirection: 'row', alignSelf: 'center', marginVertical: 40, marginBottom: 60, justifyContent: 'space-between', width: '100%', alignItems: 'center' },
-    headText: { marginVertical: 10, paddingHorizontal: 20, },
-    formContainer: { gap: 40, marginTop: 30, paddingHorizontal: 20, },
-    email: { width: 20, height: 20 },
+    mainLogoItem: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        marginVertical: 40,
+        marginBottom: 60,
+        justifyContent: 'space-between',
+        width: '100%',
+        alignItems: 'center'
+    },
+    formContainer: {
+        gap: 40,
+        marginTop: 30,
+        paddingHorizontal: 20,
+    },
+    headText: {
+        marginVertical: 10,
+        paddingHorizontal: 20,
+    },
+    showContactMain: {
+        paddingHorizontal: 10,
+        marginTop: 40
+    },
+    email: {
+        width: 20,
+        height: 20
+    },
+    goBack: {
+        width: 35,
+        height: 35
+    },
     inputEmail: { flex: 1 },
     textBold: { fontWeight: '700', },
     signupText: { color: 'white', },

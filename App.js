@@ -29,20 +29,23 @@ export default function App() {
       {/* <Splash /> */}
       {/* <SignUp /> */}
       {/* <SignIn /> */}
-      {/* <FPassword /> */}
+
       {/* <Home /> */}
+      {/* <Profile /> */}
+      {/* <LiveRadio /> */}
+      {/* <UpComing /> */}
       {/* <DjProfile /> */}
       {/* <Archives /> */}
-      {/* <Profile /> */}
-      {/* <UpComing /> */}
-      {/* <LiveRadio /> */}
-      {/* <Sponsers /> */}
       {/* <ShowsContact /> */}
+
+      {/* <Sponsers /> */}
       {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
+
       {/* <Test /> */}
       {/* <Test2 /> */}
       {/* <PasswordInput /> */}
+      {/* <FPassword /> */}
       {/* <Test3 /> */}
       <UserLogins />
       {/* <HomeNavigations /> */}

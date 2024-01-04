@@ -14,14 +14,11 @@ export default function SignIn({ navigation }) {
     const [requiredFields, setRequiredFields] = useState(false);
     const [fieldShown, setFieldShown] = useState(false);
 
-
     const React_Native_SignIn_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/login.php'
 
     const handleSignIn = async () => {
-
         try {
             setRequiredFields(true)
-
             if (!username || !password) {
                 console.log('Please fill in all the fields before SignIn.');
                 setFieldShown(true)
@@ -30,7 +27,6 @@ export default function SignIn({ navigation }) {
                 }, 3000)
                 return;
             }
-
 
             const response = await fetch(React_Native_SignIn_Url, {
                 method: 'POST',
@@ -44,20 +40,20 @@ export default function SignIn({ navigation }) {
             } else {
                 console.log('LogIn Failed', responseData);
             }
-
         } catch (error) {
             console.log('Error in the LogIn', error)
         }
     }
 
-
     return (
         <SafeAreaView>
             <ScrollView>
+
                 <View style={styles.container}>
                     <View style={styles.mainLogoItem}>
                         <Image source={logoImage} style={styles.mainlogo} />
                     </View>
+
                     <View style={styles.headText}>
                         <Text style={styles.heading}>Let's Sign You In</Text>
                         <Text style={styles.paragraph}>Welcome back, you've been missed!</Text>
@@ -67,6 +63,7 @@ export default function SignIn({ navigation }) {
                         {renderFormItem('Username or Email', userIcon, 'examplename', false, setUsername)}
                         {renderFormItem('Password', lockIcon, '********', true, setPassword)}
                     </View>
+
                     <View style={{ height: 20, marginTop: 20 }}>
                         {requiredFields && !username && !password && fieldShown &&
                             <Text style={styles.errorText}>Please fill in all the required fields before SignIn.</Text>
@@ -94,6 +91,7 @@ export default function SignIn({ navigation }) {
                         </Text>
                     </View>
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -131,7 +129,6 @@ const styles = StyleSheet.create({
         padding: 10,
         flex: 1,
         paddingHorizontal: 30,
-        // marginTop: 20
     },
     mainLogoItem: {
         alignSelf: 'center',
@@ -157,11 +154,14 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     errorText: {
-        // color: '#97AE26',
         color: 'red',
         fontSize: 14,
     },
-    email: { width: 20, height: 20, marginBottom: 5 },
+    email: {
+        width: 20,
+        height: 20,
+        marginBottom: 5
+    },
     emailText: {
         fontSize: 16,
         color: "gray",
@@ -204,7 +204,6 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        // backgroundColor: 'rgba(119, 162, 29, 1)'
     },
     signupText: {
         color: 'white',

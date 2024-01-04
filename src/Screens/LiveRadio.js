@@ -1,17 +1,18 @@
 import React from 'react';
 import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity, StatusBar, } from 'react-native';
 
-const LiveRadio = ({navigation}) => (
+const LiveRadio = ({ navigation }) => (
     <SafeAreaView style={styles.container}>
-        <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
         <ScrollView>
+
             <View style={[styles.ellipseHome, styles.relative]}>
                 <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                 <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
                     <Image source={require('../assets/Ellipse3Shade.png')} />
                 </View>
+
                 <View style={styles.header}>
-                    <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                    <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                         <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                     </TouchableOpacity>
                     <View style={styles.alignCenter}>
@@ -28,6 +29,7 @@ const LiveRadio = ({navigation}) => (
                         <Text style={styles.heading}>Ballina Killaloe Local Radio</Text>
                         <Text style={styles.paragraph}>Streaming Online</Text>
                     </View>
+
                     <View style={styles.controles}>
                         <TouchableOpacity>
                             <Image source={require('../assets/icons/volumeDown.png')} style={styles.resume} />
@@ -39,11 +41,13 @@ const LiveRadio = ({navigation}) => (
                             <Image source={require('../assets/icons/volumeUp.png')} style={styles.resume} />
                         </TouchableOpacity>
                     </View>
+
                     <TouchableOpacity>
                         <Image source={require('../assets/icons/volumeUp.png')} style={styles.resume} />
                     </TouchableOpacity>
                 </View>
             </View>
+
             <Image source={require('../assets/footer.png')} />
 
         </ScrollView>
@@ -117,9 +121,13 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
     },
+    textParagraph: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: '700'
+    },
     goBack: { width: 35, height: 35 },
     alignCenter: { alignItems: 'center', gap: 5 },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
 });
 
 export default LiveRadio;

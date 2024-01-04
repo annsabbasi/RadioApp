@@ -11,7 +11,6 @@ import loginIcon from '../assets/icons/logIn.png';
 
 const React_Native_SignUp_Url = 'https://ballinakillaloelocalradio.com/ballina_web/ws/register.php';
 
-
 export default function SignUp({ navigation }) {
 
     const [email, setEmail] = useState();
@@ -40,7 +39,6 @@ export default function SignUp({ navigation }) {
                 }, 3000)
                 return;
             }
-
             if (!agreedTerms) {
                 console.log('Please Agreed to our terms and conditions');
                 setMessageShown(true)
@@ -49,7 +47,6 @@ export default function SignUp({ navigation }) {
                 }, 3000)
                 return;
             }
-
             const response = await fetch(React_Native_SignUp_Url, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -59,17 +56,13 @@ export default function SignUp({ navigation }) {
                     password,
                 }),
             });
-
             const responseData = await response.json();
-
             if (response.ok) {
                 navigation.navigate('SignIn')
                 console.log('User SignUp Successfully', responseData);
             } else {
                 console.log('User SignUp Failed', responseData);
             }
-
-
         } catch (error) {
             console.log('Error during the SignUp', error);
         }
@@ -78,6 +71,7 @@ export default function SignUp({ navigation }) {
     return (
         <SafeAreaView>
             <ScrollView>
+
                 <View style={styles.container}>
                     <View style={styles.mainLogoItem}>
                         <Image source={logoImage} style={styles.mainlogo} />
@@ -104,7 +98,6 @@ export default function SignUp({ navigation }) {
                             </Text>
                         </View>
                         {attemptedSignup && !check && messageShown && <Text style={styles.errorText}>Please check the terms and conditions.</Text>}
-
                         {fields && !email && !username && !password && fieldsShown && <Text style={styles.errorText}>Please fill in the all required fields.</Text>}
                     </View>
 
@@ -114,8 +107,7 @@ export default function SignUp({ navigation }) {
                                 colors={['#F0D042', '#77A21D']}
                                 start={{ x: 0.5, y: 0 }}
                                 end={{ x: 0.5, y: 1 }}
-                                style={styles.btn}
-                            >
+                                style={styles.btn} >
                                 <Text>{''}</Text>
                                 <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
                                 <Image source={loginIcon} style={styles.email} />
@@ -129,20 +121,18 @@ export default function SignUp({ navigation }) {
                         </Text>
                     </View>
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
 };
 
 const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) => {
-
-    // const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-
     return (
         <View style={styles.formItem}>
             <Text style={styles.emailText}>{label}</Text>
@@ -151,17 +141,14 @@ const renderFormItem = (label, icon, placeholder, isPassword = false, onChange) 
                 <TextInput
                     style={styles.inputEmail}
                     placeholder={placeholder}
-                    // textContentType='password'
                     secureTextEntry={isPassword && !showPassword}
                     placeholderTextColor="gray"
                     onChangeText={onChange} />
-                {/* {isPassword && <Image source={eyeIcon} style={styles.email} />} */}
                 {isPassword &&
                     <TouchableOpacity onPress={togglePasswordVisibility}>
                         <Image source={eyeIcon} style={styles.email} />
                     </TouchableOpacity>
                 }
-
             </View>
         </View>
     );
@@ -172,7 +159,6 @@ const styles = StyleSheet.create({
         padding: 10,
         flex: 1,
         paddingHorizontal: 30,
-        // marginTop: 20
     },
     mainLogoItem: {
         alignSelf: 'center',
@@ -196,7 +182,11 @@ const styles = StyleSheet.create({
     formContainer: {
         gap: 30
     },
-    email: { width: 20, height: 20, marginBottom: 5 },
+    email: {
+        width: 20,
+        height: 20,
+        marginBottom: 5
+    },
     emailText: {
         fontSize: 16,
         color: "gray",
@@ -218,7 +208,6 @@ const styles = StyleSheet.create({
         flex: 1
     },
     checkboxMain: {
-        // marginVertical: 25,
         marginTop: 40,
         paddingVertical: 20,
         gap: 15,
@@ -238,7 +227,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     errorText: {
-        // color: '#97AE26',
         color: 'red',
         fontSize: 14,
     },
@@ -268,7 +256,6 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        // backgroundColor: 'rgba(119, 162, 29, 1)'
     },
     signupText: {
         color: 'white',

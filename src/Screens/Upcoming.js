@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, StatusBar, TouchableOpacity } from 'react-native';
+import { View, Text, SafeAreaView, ScrollView, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
 const showData = [
     {
@@ -44,18 +44,19 @@ const showData = [
     },
 ];
 
-export default function UpComing({navigation}) {
+export default function UpComing({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
+
                 <View style={[styles.ellipseHome, styles.relative]}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={[styles.absolute, { left: -80, width: '10%', top: -10 }]}>
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
+
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.alignCenter}>
@@ -69,6 +70,7 @@ export default function UpComing({navigation}) {
                     {showData.map((show, index) => (
                         <View key={index} style={styles.showsCard}>
                             <Image source={show.image} style={styles.eighteen} />
+
                             <View style={styles.cardContent}>
                                 <Text style={styles.showHeadText}>{show.title}</Text>
                                 <Text style={styles.textSizeGlobal}>{show.host}</Text>
@@ -81,9 +83,11 @@ export default function UpComing({navigation}) {
                                     ))}
                                 </View>
                             </View>
+
                         </View>
                     ))}
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     )
@@ -118,7 +122,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 25,
     },
-    alignCenter: { alignItems: 'center', gap: 5 },
+    alignCenter: {
+        alignItems: 'center',
+        gap: 5
+    },
     textHead: {
         fontSize: 30,
         fontWeight: '700',
@@ -154,10 +161,26 @@ const styles = StyleSheet.create({
         width: '75%',
         gap: 5,
     },
+    cardsTimeInfoMain: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '100%',
+        marginTop: 10
+    },
+    cardsTimeInfo: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 5
+    },
+    showHeadText: {
+        fontSize: 20,
+        fontWeight: '700'
+    },
+    textSizeGlobal: {
+        fontSize: 16,
+        color: 'gray'
+    },
     goBack: { width: 35, height: 35 },
-    cardsTimeInfoMain: { flexDirection: 'row', justifyContent: 'space-between', width: '100%', marginTop: 10 },
-    cardsTimeInfo: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 5 },
-    showHeadText: { fontSize: 20, fontWeight: '700' },
     primaryIcons: { width: 20, height: 20 },
-    textSizeGlobal: { fontSize: 16, color: 'gray' },
 });

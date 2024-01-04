@@ -13,13 +13,12 @@ import clockIcon from '../assets/icons/clock.png';
 import eighteenImage from '../assets/18.png';
 import twentySevenImage from '../assets/27.png';
 import MaleAvatar from '../assets/MaleAvatar.png';
-import { StatusBar } from 'expo-status-bar';
 
 export default function DjProfile({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
+
                 <View style={styles.ellipseHome}>
                     <Image source={Ellipse3} style={styles.image} />
                     <View style={styles.header}>
@@ -38,10 +37,12 @@ export default function DjProfile({ navigation }) {
                         <Image source={MaleAvatar} style={styles.profileImg} />
                     </View>
                 </View>
+
                 <View style={{ marginBottom: 40, alignItems: 'center', marginTop: 55, gap: 5 }}>
                     <Text style={styles.profileName}>Ronan Ryan</Text>
                     <Text style={styles.profileDesc}>Ronan is the top DJ featuring shows like classic country and blues.</Text>
                 </View>
+
                 <View style={[styles.cardsContainer, { justifyContent: 'space-around', paddingHorizontal: 10, marginTop: 30 }]}>
                     {[
                         { icon: musicIcon, heading: 'Genre', paragraph: 'Country' },
@@ -85,6 +86,7 @@ export default function DjProfile({ navigation }) {
                         </View>
                     ))}
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -93,8 +95,6 @@ export default function DjProfile({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: 20,
-        // backgroundColor: 'green',
     },
     ellipseHome: {
         position: 'relative',

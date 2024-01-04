@@ -18,11 +18,10 @@ const Splash = ({ navigation }) => {
         Animated.sequence([fadeIn, Animated.delay(2000), fadeOut]).start(() => {
             navigation.navigate('SignUp');
         }, [navigation, opacityValue])
-
     });
+
     return (
         <View style={styles.container}>
-            {/* <StatusBar backgroundColor="#ffffff" barStyle="dark-content" /> */}
             <StatusBar backgroundColor="#97AE26" barStyle="dark-content" />
             <Animated.Image
                 source={require('../assets/Splash.png')}

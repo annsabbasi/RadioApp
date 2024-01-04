@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native'
-import { StatusBar } from 'expo-status-bar';
 
 import imgA from '../assets/imgA.jpg';
 import imgB from '../assets/imgB.jpg';
@@ -16,8 +15,8 @@ const imageArray = [imgA, imgB, imgC, imgD, imgE, imgF, imgG, imgH, imgI];
 export default function Archives({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
             <ScrollView>
+
                 <View style={styles.ellipseHome}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={{ position: 'absolute', left: -80, width: '10%', top: -10 }}>
@@ -62,7 +61,6 @@ export default function Archives({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // marginTop: 20
     },
     ellipseHome: {
         position: 'relative',
@@ -120,12 +118,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    textParagraph: {
+        fontSize: 16,
+        color: 'white',
+        fontWeight: '700'
+    },
+    textLight: {
+        textAlign: 'center',
+        fontSize: 14,
+        marginTop: 8
+    },
+    img: {
+        width: 100,
+        height: 100,
+        borderRadius: 5
+    },
+    alignCenter: {
+        alignItems: 'center',
+        gap: 5
+    },
+    textBold: {
+        fontSize: 18,
+        fontWeight: '700',
+    },
+    primaryIcon: {
+        width: 25,
+        height: 25
+    },
     goBack: { width: 35, height: 35 },
     image: { width: '100%', },
-    alignCenter: { alignItems: 'center', gap: 5 },
-    textParagraph: { fontSize: 16, color: 'white', fontWeight: '700' },
-    primaryIcon: { width: 25, height: 25 },
-    textLight: { textAlign: 'center', fontSize: 14, marginTop: 8 },
-    textBold: { fontSize: 18, fontWeight: '700', },
-    img: { width: 100, height: 100, borderRadius: 5 }
 });
