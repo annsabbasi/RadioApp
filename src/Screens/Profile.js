@@ -9,7 +9,7 @@ const infoData = [
     { icon: require('../assets/icons/phone.png'), heading: 'Phone', value: '+1234567890' },
 ];
 
-export default function UserProfile() {
+export default function UserProfile({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
@@ -20,7 +20,7 @@ export default function UserProfile() {
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Text style={styles.textHead}>Profile</Text>

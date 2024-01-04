@@ -2,7 +2,7 @@ import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpaci
 import React from 'react'
 import Slider from '@react-native-community/slider';
 
-export default function ArcheiveInner() {
+export default function ArcheiveInner({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
@@ -16,7 +16,7 @@ export default function ArcheiveInner() {
                             source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
                             <Image
                                 source={require('../assets/icons/goBack.png')}
                                 style={styles.goBack} />

@@ -13,7 +13,7 @@ import imgH from '../assets/imgH.jpg';
 import imgI from '../assets/imgI.jpg';
 const imageArray = [imgA, imgB, imgC, imgD, imgE, imgF, imgG, imgH, imgI];
 
-export default function Archives() {
+export default function Archives({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
@@ -24,7 +24,7 @@ export default function Archives() {
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.alignCenter}>

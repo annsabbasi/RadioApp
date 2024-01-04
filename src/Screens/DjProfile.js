@@ -15,15 +15,15 @@ import twentySevenImage from '../assets/27.png';
 import MaleAvatar from '../assets/MaleAvatar.png';
 import { StatusBar } from 'expo-status-bar';
 
-export default function DjProfile() {
+export default function DjProfile({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
+            {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
                 <View style={styles.ellipseHome}>
                     <Image source={Ellipse3} style={styles.image} />
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }} >
                             <Image source={goBackIcon} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.elipseShadeMain}>
@@ -141,7 +141,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         textAlign: 'center',
         width: '78%',
-        backgroundColor: 'white',
         lineHeight: 25,
     },
     cardsContainer: {

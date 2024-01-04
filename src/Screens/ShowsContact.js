@@ -2,14 +2,14 @@ import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, Tou
 import React from 'react'
 import { LinearGradient } from 'expo-linear-gradient';
 
-export default function ShowsContact() {
+export default function ShowsContact({ navigation }) {
     return (
         <SafeAreaView style={styles.container}>
             {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
                 <View style={styles.showContactMain}>
                     <View style={styles.mainLogoItem}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
                             <Image source={require('../assets/icons/back.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Image

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, SafeAreaView, Image, StyleSheet, ScrollView, TouchableOpacity, StatusBar, } from 'react-native';
 
-const LiveRadio = () => (
+const LiveRadio = ({navigation}) => (
     <SafeAreaView style={styles.container}>
         <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
         <ScrollView>
@@ -11,7 +11,7 @@ const LiveRadio = () => (
                     <Image source={require('../assets/Ellipse3Shade.png')} />
                 </View>
                 <View style={styles.header}>
-                    <TouchableOpacity style={{ zIndex: 3 }}>
+                    <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
                         <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                     </TouchableOpacity>
                     <View style={styles.alignCenter}>

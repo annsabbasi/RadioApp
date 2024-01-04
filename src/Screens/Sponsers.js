@@ -7,7 +7,7 @@ const sponsorRows = [
     [require('../assets/bajaj.png')],
 ];
 
-export default function Sponsors() {
+export default function Sponsors({navigation}) {
     return (
         <SafeAreaView>
             <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
@@ -18,7 +18,7 @@ export default function Sponsors() {
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }}>
+                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => {navigation.navigate('Home')}}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.alignCenter}>

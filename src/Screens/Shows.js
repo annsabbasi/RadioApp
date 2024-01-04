@@ -12,14 +12,14 @@ const data = [
     { img: require('../assets/imgF.jpg'), textHead: 'James waraich', textParagraph: 'Type your message here....' },
 ]
 
-export default function Test() {
+export default function Test({navigation}) {
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
                 <View style={styles.ellipseHome}>
                     <Image source={require('../assets/Ellipse3.png')} style={styles.image} />
                     <View style={styles.header}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {navigation.navigate('Home')}}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <Text style={styles.textHead}>Show</Text>
