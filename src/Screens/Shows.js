@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TouchableOpacity, } from 'react-native';
 
+import { LinearGradient } from 'expo-linear-gradient';
+
 const data = [
     { img: require('../assets/imgA.jpg'), textHead: 'Love your all the shows, want to thank you.', textParagraph: 'Maciej Kowalski' },
     { img: require('../assets/imgB.jpg'), textHead: 'Awsome, super, Thank you. 😄 ❤️', textParagraph: 'Odeusz Piotrowski' },
@@ -48,22 +50,29 @@ export default function Test() {
                 </View>
 
                 <View style={styles.chatContainer}>
-                    <View style={styles.chatHead}>
-                        <Image source={require('../assets/icons/chatIcn.png')} style={styles.musicpng} />
-                        <Text style={styles.chatTag}>Chat here...</Text>
-                    </View>
-                    <View style={styles.chatItems}>
-                        {data.map(({ img, textHead, textParagraph }, index) => (
-                            <TouchableOpacity key={index} style={styles.chatContent}>
-                                <Image source={img} style={styles.chatUserImg} />
-                                <View>
-                                    <Text style={styles.chatTextHead}>{textHead}</Text>
-                                    <Text style={styles.chatTextParagraph}>{textParagraph}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        ))}
-                    </View>
+                    <LinearGradient
+                        colors={['#A3FA5E', '#0DA15A']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 0 }}
+                    >
+                        <View style={styles.chatHead}>
+                            <Image source={require('../assets/icons/chatIcn.png')} style={styles.musicpng} />
+                            <Text style={styles.chatTag}>Chat here...</Text>
+                        </View>
+                        <View style={styles.chatItems}>
+                            {data.map(({ img, textHead, textParagraph }, index) => (
+                                <TouchableOpacity key={index} style={styles.chatContent}>
+                                    <Image source={img} style={styles.chatUserImg} />
+                                    <View>
+                                        <Text style={styles.chatTextHead}>{textHead}</Text>
+                                        <Text style={styles.chatTextParagraph}>{textParagraph}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            ))}
+                        </View>
+                    </LinearGradient>
                 </View>
+
             </ScrollView>
         </SafeAreaView>
     );
@@ -143,7 +152,7 @@ const styles = StyleSheet.create({
         right: '29%'
     },
     chatContainer: {
-        backgroundColor: 'green',
+        // backgroundColor: 'green',
         width: '95%',
         alignSelf: 'center',
         marginVertical: 30,

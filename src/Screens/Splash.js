@@ -6,12 +6,12 @@ const Splash = ({ navigation }) => {
     useEffect(() => {
         const fadeIn = Animated.timing(opacityValue, {
             toValue: 1,
-            duration: 1000,
+            duration: 2000,
             useNativeDriver: false
         });
         const fadeOut = Animated.timing(opacityValue, {
             toValue: 0,
-            duration: 2000,
+            duration: 3000,
             useNativeDriver: false
         });
 

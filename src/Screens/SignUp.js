@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import logoImage from '../assets/BKLR.png';
 import mailIcon from '../assets/icons/mail.png';
@@ -108,10 +109,17 @@ export default function SignUp({ navigation }) {
                     </View>
 
                     <View style={styles.btnContainer}>
-                        <TouchableOpacity style={styles.btn} onPress={handleSignup}>
-                            <Text>{''}</Text>
-                            <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
-                            <Image source={loginIcon} style={styles.email} />
+                        <TouchableOpacity onPress={handleSignup}>
+                            <LinearGradient
+                                colors={['#F0D042', '#77A21D']}
+                                start={{ x: 0.5, y: 0 }}
+                                end={{ x: 0.5, y: 1 }}
+                                style={styles.btn}
+                            >
+                                <Text>{''}</Text>
+                                <Text style={[styles.signupText, styles.textBold]}>SIGN UP</Text>
+                                <Image source={loginIcon} style={styles.email} />
+                            </LinearGradient>
                         </TouchableOpacity>
                     </View>
 
@@ -260,7 +268,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        backgroundColor: 'rgba(119, 162, 29, 1)'
+        // backgroundColor: 'rgba(119, 162, 29, 1)'
     },
     signupText: {
         color: 'white',

@@ -1,10 +1,11 @@
 import { View, Text, SafeAreaView, ScrollView, StyleSheet, Image, TextInput, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function ShowsContact() {
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent />
+            {/* <StatusBar backgroundColor="transparent" barStyle="dark-content" translucent /> */}
             <ScrollView>
                 <View style={styles.showContactMain}>
                     <View style={styles.mainLogoItem}>
@@ -44,12 +45,18 @@ export default function ShowsContact() {
                         </View>
 
                         <View style={styles.btnContainer}>
-                            <TouchableOpacity style={styles.btn}>
-                                <Text>{''}</Text>
-                                <Text style={[styles.signupText, styles.textBold]}>SUBMIT</Text>
-                                <Image
-                                    source={require('../assets/icons/logIn.png')}
-                                    style={styles.email} />
+                            <TouchableOpacity>
+                                <LinearGradient
+                                    colors={['#F0D042', '#77A21D']}
+                                    start={{ x: 0.5, y: 0 }}
+                                    end={{ x: 0.5, y: 1 }}
+                                    style={styles.btn} >
+                                    <Text>{''}</Text>
+                                    <Text style={[styles.signupText, styles.textBold]}>SUBMIT</Text>
+                                    <Image
+                                        source={require('../assets/icons/logIn.png')}
+                                        style={styles.email} />
+                                </LinearGradient>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -119,12 +126,13 @@ const styles = StyleSheet.create({
     btnContainer: {
         alignSelf: 'center',
         width: '100%',
-        marginTop: 30
+        marginTop: 30,
     },
     linearGradient: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        // paddingVertical: 20
     },
     btn: {
         flexDirection: 'row',
@@ -135,11 +143,12 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        backgroundColor: 'rgba(119, 162, 29, 1)'
+        // backgroundColor: 'rgba(119, 162, 29, 1)'
     },
     haveAccount: {
         marginVertical: 60,
-        gap: 10
+        gap: 10,
+        paddingHorizontal: 20,
     },
     headTextVia: {
         fontWeight: '600',
@@ -156,10 +165,10 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     goBack: { width: 35, height: 35 },
-    showContactMain: { paddingHorizontal: 30, marginTop: 40 },
+    showContactMain: { paddingHorizontal: 10, marginTop: 40 },
     mainLogoItem: { flexDirection: 'row', alignSelf: 'center', marginVertical: 40, marginBottom: 60, justifyContent: 'space-between', width: '100%', alignItems: 'center' },
-    headText: { marginVertical: 10, },
-    formContainer: { gap: 40, marginTop: 30 },
+    headText: { marginVertical: 10, paddingHorizontal: 20, },
+    formContainer: { gap: 40, marginTop: 30, paddingHorizontal: 20, },
     email: { width: 20, height: 20 },
     inputEmail: { flex: 1 },
     textBold: { fontWeight: '700', },

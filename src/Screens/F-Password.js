@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 import logoImage from '../assets/BKLR.png';
 import checkIcon from '../assets/icons/check.png';
@@ -41,10 +42,17 @@ const renderFormItem = (label) => {
 const renderContinueButton = () => {
     return (
         <View style={styles.btnContainer}>
-            <TouchableOpacity style={styles.btn}>
-                <Text>{''}</Text>
-                <Text style={[styles.signupText, styles.textBold]}>CONTINUE</Text>
-                <Image source={arrowRightIcon} style={styles.email} />
+            <TouchableOpacity>
+                <LinearGradient
+                    colors={['#F0D042', '#77A21D']}
+                    start={{ x: 0.5, y: 0 }}
+                    end={{ x: 0.5, y: 1 }}
+                    style={styles.btn}
+                >
+                    <Text>{''}</Text>
+                    <Text style={[styles.signupText, styles.textBold]}>CONTINUE</Text>
+                    <Image source={arrowRightIcon} style={styles.email} />
+                </LinearGradient>
             </TouchableOpacity>
         </View>
     );
@@ -79,7 +87,7 @@ const styles = StyleSheet.create({
         gap: 60,
         marginTop: 30,
     },
-    email: { width: 20, height: 20,marginBottom: 5 },
+    email: { width: 20, height: 20, marginBottom: 5 },
     emailText: {
         fontSize: 16,
         color: 'gray',
@@ -119,7 +127,7 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 25,
         borderWidth: 0,
-        backgroundColor: 'rgba(119, 162, 29, 1)',
+        // backgroundColor: 'rgba(119, 162, 29, 1)',
     },
     signupText: {
         color: 'white',

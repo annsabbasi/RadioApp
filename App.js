@@ -23,7 +23,7 @@ import UserLogins from './src/Navigation/UserLogins';
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar backgroundColor="#97AE26" barStyle="dark-content" />
       {/* <Splash /> */}
       {/* <SignUp /> */}
       {/* <SignIn /> */}
@@ -38,11 +38,11 @@ export default function App() {
       {/* <ShowsContact /> */}
       {/* <ArcheiveInner /> */}
       {/* <Shows /> */}
-      <Test />
+      {/* <Test /> */}
       {/* <Test2 /> */}
       {/* <PasswordInput /> */}
       {/* <Test3 /> */}
-      {/* <UserLogins /> */}
+      <UserLogins />
     </View>
   );
 }
