@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         marginTop: 25,
+        zIndex: 5
     },
     textHead: {
         fontSize: 30,

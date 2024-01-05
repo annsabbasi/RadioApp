@@ -9,7 +9,7 @@ import imgE from '../assets/imgE.jpg';
 import imgF from '../assets/imgF.jpg';
 
 import EllipseHome from '../assets/EllipseHome.png';
-import hamburgerIcon from '../assets/icons/mike.png';
+import hamburgerIcon from '../assets/icons/hamburger.png';
 import powerIcon from '../assets/icons/power.png';
 import vectorIcon from '../assets/icons/Vector.png';
 import ellipse2Icon from '../assets/icons/Ellipse2.png';
@@ -195,6 +195,7 @@ const styles = StyleSheet.create({
     ellipseHome: {
         position: 'relative',
         width: '100%',
+        zIndex: 10
     },
     header: {
         position: 'absolute',
@@ -259,7 +260,7 @@ const styles = StyleSheet.create({
         marginVertical: 30,
         gap: 40,
         marginTop: 70,
-        zIndex: 1
+        zIndex: 2
     },
     djHead: {
         marginHorizontal: 20,

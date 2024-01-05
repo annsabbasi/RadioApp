@@ -29,6 +29,7 @@ export default function App() {
       {/* <Splash /> */}
       {/* <SignUp /> */}
       {/* <SignIn /> */}
+      <UserLogins />
 
       {/* <Home /> */}
       {/* <Profile /> */}
@@ -47,7 +48,6 @@ export default function App() {
       {/* <PasswordInput /> */}
       {/* <FPassword /> */}
       {/* <Test3 /> */}
-      <UserLogins />
       {/* <HomeNavigations /> */}
     </View>
   );

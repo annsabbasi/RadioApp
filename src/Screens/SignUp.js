@@ -89,7 +89,7 @@ export default function SignUp({ navigation }) {
 
                     <View style={styles.checkboxMain}>
                         <View style={styles.checkboxContainer}>
-                            <View style={styles.checkbox} onTouchEnd={() => setAgreedTerms(!agreedTerms)}>
+                            <View style={styles.checkbox} onPress={() => setAgreedTerms(!agreedTerms)} onTouchEnd={checkTrue}>
                                 {check && <Text>&#10003;</Text>}
                             </View>
                             <Text style={styles.text} onPress={checkTrue}>

@@ -19,7 +19,7 @@ export default function Sponsors({ navigation }) {
                         <Image source={require('../assets/Ellipse3Shade.png')} />
                     </View>
                     <View style={styles.header}>
-                        <TouchableOpacity style={{ zIndex: 3 }} onPress={() => { navigation.navigate('Home') }}>
+                        <TouchableOpacity onPress={() => { navigation.navigate('Home') }} style={{ zIndex: 4, }}>
                             <Image source={require('../assets/icons/goBack.png')} style={styles.goBack} />
                         </TouchableOpacity>
                         <View style={styles.alignCenter}>
@@ -73,6 +73,7 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
         marginTop: 25,
+        zIndex: 5
     },
     textHead: {
         fontSize: 30,
