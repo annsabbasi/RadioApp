@@ -1,54 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import SignUp from './src/Screens/SignUp';
-import SignIn from './src/Screens/SignIn';
-import FPassword from './src/Screens/F-Password';
-import Test from './src/Screens/Test';
-import Home from './src/Screens/Home';
-import Splash from './src/Screens/Splash';
-import DjProfile from './src/Screens/DjProfile';
-import Archives from './src/Screens/Archives';
-import Profile from './src/Screens/Profile';
-import Shows from './src/Screens/Shows';
-import UpComing from './src/Screens/Upcoming';
-import LiveRadio from './src/Screens/LiveRadio';
-import Sponsers from './src/Screens/Sponsers';
-import ShowsContact from './src/Screens/ShowsContact';
-import ArcheiveInner from './src/Screens/ArcheiveInner';
-import PasswordInput from './src/Screens/PasswordInput';
-import Test2 from './src/Screens/Test2';
-import Test3 from './src/Screens/Test3';
 import UserLogins from './src/Navigation/UserLogins';
-import HomeNavigations from './src/Navigation/HomeNavigations';
-// import HomeNavigations from './src/Navigation/HomeNavigations';
 
 export default function App() {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#97AE26" barStyle="dark-content" />
-      {/* <Splash /> */}
       {/* <SignUp /> */}
-      {/* <SignIn /> */}
       <UserLogins />
-
-      {/* <Home /> */}
-      {/* <Profile /> */}
-      {/* <LiveRadio /> */}
-      {/* <UpComing /> */}
-      {/* <DjProfile /> */}
-      {/* <Archives /> */}
-      {/* <ShowsContact /> */}
-
-      {/* <Sponsers /> */}
-      {/* <ArcheiveInner /> */}
-      {/* <Shows /> */}
-
-      {/* <Test /> */}
-      {/* <Test2 /> */}
-      {/* <PasswordInput /> */}
-      {/* <FPassword /> */}
-      {/* <Test3 /> */}
-      {/* <HomeNavigations /> */}
     </View>
   );
 }
@@ -56,8 +16,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 });

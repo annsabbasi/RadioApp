@@ -5,8 +5,6 @@ import SignUp from '../Screens/SignUp';
 import SignIn from '../Screens/SignIn';
 import Splash from '../Screens/Splash';
 import Home from '../Screens/Home';
-import HomeNavigations from './HomeNavigations';
-
 import LiveRadio from '../Screens/LiveRadio';
 import UpComing from '../Screens/Upcoming';
 import DjProfile from '../Screens/DjProfile';
@@ -26,7 +24,6 @@ export default function UserLogins() {
                 <Stack.Screen component={Splash} name="Splash" />
                 <Stack.Screen component={SignUp} name="SignUp" />
                 <Stack.Screen component={SignIn} name="SignIn" />
-                {/* <Stack.Screen component={HomeNavigations} name="HomeNavigations" /> */}
                 <Stack.Screen component={Home} name="Home" />
                 <Stack.Screen component={Profile} name='Profile' />
                 <Stack.Screen component={LiveRadio} name='LiveRadio' />
